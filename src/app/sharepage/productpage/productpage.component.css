@@ -1,0 +1,34 @@
+.main{
+    background-color: #eee;
+}
+.container{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+}
+.product_img{
+    position: relative;
+
+}
+.product_img img{
+    width: 100%;
+}
+
+.product_img .sale{
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    padding: auto auto;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+.product_img .sale h3{
+    color: beige;
+    font-size: 23px;
+    margin: 3px;
+
+}

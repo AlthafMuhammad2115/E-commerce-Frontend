@@ -1,0 +1,53 @@
+<div class="list d-none d-md-flex col-md-12">
+    <ul>
+        <li routerLink="/Men" routerLinkActive="active" >Men</li>
+        <li routerLink="/Women"routerLinkActive="active">Women</li>
+        <li routerLink="/Kids" routerLinkActive="active">Kids</li>
+        <li routerLink="/Beauty" routerLinkActive="active">Beauty</li>
+    </ul>
+</div>
+
+<div class="smlist col-4   d-sm-block d-md-none " *ngIf="vis">
+    
+    <div class="name">
+        <ul>
+            <div class="img">      
+                      <img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                      <div class="detials">
+                        <p>Avail offer</p>
+                        <p>50% offer</p>
+                      </div>
+            </div>
+
+            <li (click)="clicklist1()" routerLink="/Men" routerLinkActive="active">Men<i  [style.transform]="rotate1()" class="bi bi-caret-right"></i></li>
+            <div class="sublist" *ngIf="men">
+                <ul>
+                    <li>t-shirt</li>
+                    <li>Shirts</li>
+                    <li>Pants</li>
+                </ul>
+            </div>
+
+            <li (click)="clicklist2()" routerLink="/Women" routerLinkActive="active">Women<i [style.transform]="rotate2()" class="bi bi-caret-right"></i></li>
+            <div class="sublist" *ngIf="women">
+                <ul>
+                    <li>t-shirt</li>
+                    <li>Shirts</li>
+                    <li>Pants</li>
+                </ul>
+            </div>
+
+
+            <li (click)="clicklist3()" routerLink="/Kids" routerLinkActive="active">Kids<i [style.transform]="rotate3()" class="bi bi-caret-right"></i></li>
+            <div class="sublist" *ngIf="kids">
+                <ul>
+                    <li>t-shirt</li>
+                    <li>Shirts</li>
+                    <li>Pants</li>
+                </ul>
+            </div>
+
+
+        </ul>
+    </div>
+</div>

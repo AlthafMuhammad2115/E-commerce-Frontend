@@ -1,0 +1,44 @@
+thead th{
+    width: 15%;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+.empty{
+    height: 450px;
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.empty img{
+    height: 100px;
+}
+.btns button{
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.total{
+    border-top: 1px solid gray;
+}
+.count{
+    display: flex;
+    justify-content: center;
+    border: transparent;
+    border-inline: transparent;
+    width: 30px;
+    
+}
+.numsetter {
+    display: flex;
+}
+.numsetter button{
+    border: transparent;
+    background-color: transparent;
+    font-size: 23px;
+}

@@ -1,0 +1,73 @@
+.list li{
+    list-style: none;
+   padding: 0px 40px;
+   cursor: pointer;
+   color: rgba(0, 0, 0, 0.6);
+
+
+}
+.list li:hover{
+    transition: font-weight .1s ease-in;
+    color: rgba(0, 0, 0, 1);
+}
+.list li.active{
+    color: black;
+}
+.list ul{
+   display: flex;
+}
+.list{
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.name{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius:0px 0px 10px 0px;
+}
+.name li {
+    list-style: none;
+    border-radius: 0px 0px 10px 0px;
+    font-size: 15px;
+    margin-top: 15px;
+    cursor: context-menu;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.smlist img{
+    width: 110%;
+    height: 100px;
+
+}
+.smlist ul{
+    width: 90%;
+    margin: 0px;
+    padding: 0px;
+}
+.img{
+    position: relative;
+    opacity:1;
+}
+
+.detials{
+    position: absolute;
+    top: 50%;
+    color: white;
+    line-height: 1px;
+    z-index: 100;
+}
+.sublist li{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.smlist{
+    position: absolute;
+    z-index: 100;
+}
+
+

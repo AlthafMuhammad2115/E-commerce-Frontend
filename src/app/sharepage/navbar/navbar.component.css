@@ -1,0 +1,66 @@
+.list li{
+    list-style: none;
+    font-size: 23px;
+    padding: 0px 15px;
+    cursor: context-menu;
+    color: rgba(0, 0, 0, .7);
+
+
+}
+.list ul{
+    margin: 0px;
+}
+.list li .bi:hover{
+    color: rgba(0, 0, 0, 1);
+    
+}
+.list{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+.search input:focus::placeholder{
+    color: transparent;
+}
+.list li button{
+    border: none;
+    background-color: transparent;
+}
+.main{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+h1{
+    cursor: context-menu;
+    
+}
+.ham button{
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+}
+
+.ham button:hover{
+    color:rgba(0, 0, 0, 0.7) ;
+}
+.main{
+    width: 100%;
+    overflow: hidden;
+    z-index: 100;
+    background-color: white;
+
+}
+
+@media screen and (max-width:768px) {
+    .logo h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .list li {
+        font-size: 18px;
+        padding: 0px 10px;
+    }
+    .logo{
+        padding-top: 6px;
+    }
+}
+

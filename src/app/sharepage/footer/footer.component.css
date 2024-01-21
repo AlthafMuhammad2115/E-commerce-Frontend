@@ -1,0 +1,22 @@
+.list li{
+    padding: 0px 20px;
+    list-style: none;
+}
+.media i{
+    padding: 0px 15px;
+}
+.main{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: sticky;
+    top: 100%;
+
+}
+.copy{
+    border-top: 1px black solid;
+    align-items: flex-end;
+
+}
+.copy p{
+    padding: 0px 3px;
+    margin: 0px;
+}

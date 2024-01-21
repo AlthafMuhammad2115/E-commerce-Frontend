@@ -1,0 +1,87 @@
+.cat_card .card img{
+    height: 200px;
+    width: 200px;
+}
+.card{
+    border-radius: 0px;
+    border: transparent;
+    width: 200px;
+
+
+}
+.detials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.detials p{
+    margin-bottom: 2px;
+}
+.detials p:nth-child(3){
+    color: rgb(236, 168, 79);
+}
+.detials p:nth-child(2):hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.detials p:nth-child(1){
+    color: rgba(0, 0, 0,0.3);
+    font-size: 12px;
+}
+.cat_card{
+    width: 200px;
+}
+.cat-div{
+    grid-column-gap: 40px;
+}
+.row>*{
+    padding:0px 0px;
+    margin: 0px;
+}
+.star i,.star p{
+    color: rgba(0, 0, 0,0.5);
+    font-size: 10px;
+}
+.img{
+    position: relative;
+}
+.hover{
+    position: absolute;
+    width: 100%;
+    top: 89%;
+
+
+}
+.hover button{
+    width: 100%;
+    transition: all .2s ease-in-out;
+    background-color: rgba(0, 0, 0,0.7);
+    border: transparent;
+    color:#F8F0E3;
+}
+.color_div{
+    width:15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.filter_box{
+    box-shadow: 1px -1px 3px 0px rgba(0, 0, 0,0.2);
+}
+
+.hover button:hover{
+    background-color: black;
+}
+@media screen and (max-width:768px) {
+
+    .cat-div{
+        grid-column-gap: 0px;
+    }
+
+    .cat_card{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
