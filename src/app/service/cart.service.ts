@@ -20,7 +20,7 @@ export class CartService {
   }
 
   addtocart(product:any){
-    if(this.cartitemlist.length!=0){
+    
     let flag:number=this.cartitemlist.find((a:any,index:number)=>{
       
       let temp=a.id==product.id;
@@ -38,11 +38,7 @@ export class CartService {
       product.count++;
       console.log(product.count)
     }
-  }else{
-    this.cartitemlist.push(product);
-    this.cartitemlist.next(this.cartitemlist);
-    console.log(this.cartitemlist);
-  }
+  
 
     this.subtotal(product);
     this.gettotalprice();

@@ -15,7 +15,9 @@ export class ProductpageComponent {
  menudata:any;
  array:any[]=this.serv.postarray;
   ngOnInit(){
+    
     this.getproductid=this.ar.snapshot.paramMap.get('id');
+
     
     
     if(this.getproductid){

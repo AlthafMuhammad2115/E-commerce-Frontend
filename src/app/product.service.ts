@@ -10,9 +10,6 @@ export class ProductService {
   public color:any[]=[
     "red","black","orange","blue"
   ]
-  public range:any[]=[
-    "200-300","300-500","500-1000","1000-2000"
-  ]
   public discount:any[]=[
     "10% and above","20% and above","30% and above","40% and above","40% and above","50% and above"
   ]

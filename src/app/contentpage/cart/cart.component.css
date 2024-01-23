@@ -1,11 +1,21 @@
-thead th{
-    width: 15%;
+table{
+    width: 100%;
+}
+thead tr{
+    width: 100%;
+}
+thead tr th{
+    width: 6%;
+}
+tbody tr td{
+    display: flex;
+    align-items: center;
+}
+.product img{
+    width: 150px;
+    height: 150px;
 }
 
-.btn{
-    display: flex;
-    justify-content: space-evenly;
-}
 .empty{
     height: 450px;
     width: 70%;
@@ -19,9 +29,8 @@ thead th{
     height: 100px;
 }
 .btns button{
-    padding-left: 10px;
-    display: flex;
-    justify-content: space-around;
+    margin-left: 10px;
+    
 }
 .total{
     border-top: 1px solid gray;
@@ -34,11 +43,21 @@ thead th{
     width: 30px;
     
 }
+.product{
+    padding: 0px;
+}
 .numsetter {
     display: flex;
+    padding: 0px;
 }
 .numsetter button{
     border: transparent;
     background-color: transparent;
     font-size: 23px;
+}
+@media only screen and (max-width: 600px) {
+        .product img{
+            width: 100%;
+            height: 100%;
+        }
 }

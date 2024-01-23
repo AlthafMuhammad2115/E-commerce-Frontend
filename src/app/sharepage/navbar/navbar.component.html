@@ -4,10 +4,10 @@
       <button (click)="onclick()"><i class="bi bi-list"></i></button>
     </div>
     <div class="logo d-flex align-items-center col-3">
-      <h1 routerLink="/">Godope</h1>
+      <h1 routerLink="/home">Godope</h1>
     </div>
     <div class="search col-4">
-      <input type="text" placeholder="Search" class="form-control" />
+      <input type="text" placeholder="Search" class="form-control" #s (keyup.enter)="searchproduct(s.value)"  [value]="searchTerm" />
     </div>
     <div class="list col-4 col-md-5">
       <ul class="d-flex">

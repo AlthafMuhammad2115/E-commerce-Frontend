@@ -1,46 +1,88 @@
-<div *ngIf="len==0">
+<div *ngIf="len == 0">
   <div class="container empty">
-      <img src="https://cdni.iconscout.com/illustration/free/thumb/free-empty-cart-4085814-3385483.png" alt="">
-      <h1>Your Cart is Empty..</h1>
-      <button routerLink="/menu" class="btn btn-outline-dark">Shop now</button>
-    </div>
+    <img
+      src="https://cdni.iconscout.com/illustration/free/thumb/free-empty-cart-4085814-3385483.png"
+      alt=""
+    />
+    <h1>Your Cart is Empty..</h1>
+    <button routerLink="/" class="btn btn-outline-dark">Shop now</button>
+  </div>
 </div>
 
+<div class="table container mt-5 mt-md-0" *ngIf="len != 0">
+  <table class=" col-12">
+    <thead class="d-none d-md-flex col-12">
+      <tr class="col-12">
+        <th ></th>
+        <th >Product</th>
+        <th >Price</th>
+        <th >Quantity</th>
+        <th >Sub Total</th>
+        <th ></th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let item of postarray" class="mb-3 col-12 row">
+        <td class="col-md-2 col-3 product">
+          <img
+            src="{{ item.foodImg }}"
+            alt=""
+            
+          />
+        </td>
 
-<div class="table container" *ngIf="len!=0">
-  <table class="table">
-      <thead>
-          <tr>
-              <th></th>
-              <th >Product</th>
-              <th >Price</th>
-              <th>uantity</th>
-              <th>Sub Total</th>
-              <th ></th>
+        <td class="col-md-2 col-9 d-flex flex-column flex-md-row align-items-start align-items-md-center " >
+          <strong class="ps-3 ps-md-0">{{ item.foodName }}</strong>
 
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of postarray" class="mb-3">
-              <td><img src="{{item.foodImg}}" alt="" style="width: 50px; height: 50px; border-radius: 50%;"></td>
-              <td>{{item.foodName}}</td>
-              <td>{{item.foodPrice | currency:'INR'}}</td>
-              <td  class="d-flex numsetter">
-                  <button  (click)="decriment(item)"><i class="bi bi-dash-square-fill"></i></button>
-                  <input class="count"  [(ngModel)]="item.count" type="text" readonly>
-                  <button  (click)="incriment(item)"><i class="bi bi-plus-square-fill"></i></button></td>
-              <td>
-                  {{item.subtotal | currency:'INR'}}        
-              </td>
-              <td><div class="btn">
-                  <button class="btn btn-outline-dark" (click)="removefromcart(item) "><i class="bi bi-trash-fill"></i></button>
-                  <button class="btn btn-outline-dark" ><i class="bi bi-bag-fill"></i></button>
-              </div></td>
-          </tr>
-
-          <div>
-              <h3><strong>Total:{{subtotal}}</strong></h3>
+          <div class="d-flex d-md-none flex-column ps-3">
+            <p>{{ item.foodDetails }}</p>
+            <p>
+              <strong>{{ item.subtotal | currency : "INR" }}</strong>
+            </p>
           </div>
-      </tbody>
+        </td>
+
+        <td class="col-md-2 d-md-flex d-none"><strong>{{ item.foodPrice | currency : "INR" }}</strong></td>
+
+
+        <td class="d-flex numsetter col-md-2 col-12">
+            <div class="num col-3 col-md-12 d-flex justify-content-center justify-content-md-start mt-3 mt-md-0 mb-3 mb-md-0">
+          <button (click)="decriment(item)">
+            <i class="bi bi-dash-square-fill"></i>
+          </button>
+          <input class="count" [(ngModel)]="item.count" type="text" readonly />
+          <button (click)="incriment(item)">
+            <i class="bi bi-plus-square-fill"></i>
+          </button>
+        </div>
+        </td>
+
+
+        <td class="col-md-2 col-6 d-flex ">
+          <strong class="d-flex align-items-center"
+            ><p class="d-flex d-md-none">Sub total:</p>
+            <p>{{ item.subtotal | currency : "INR" }}</p></strong
+          >
+        </td>
+
+         
+        <td class="col-md-2 col-6 d-flex flex-row justify-content-center align-items-center">
+          <div class="btns">
+            <button class="btn btn-outline-dark" (click)="removefromcart(item)">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+            <button class="btn btn-outline-dark">
+              <i class="bi bi-bag-fill"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+
+      <div>
+        <h3>
+          <strong>Total:{{ subtotal }}</strong>
+        </h3>
+      </div>
+    </tbody>
   </table>
 </div>

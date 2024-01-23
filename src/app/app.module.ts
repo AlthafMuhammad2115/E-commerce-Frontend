@@ -20,6 +20,8 @@ import { ProductpageComponent } from './sharepage/productpage/productpage.compon
 import {MatButtonModule} from '@angular/material/button';
 import { CartComponent } from './contentpage/cart/cart.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { SearchComponent } from './sharepage/search/search.component';
+import { FilterComponent } from './sharepage/filter/filter.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     PersonComponent,
     ProductpageComponent,
     CartComponent,
+    SearchComponent,
+    FilterComponent,
     
 
 

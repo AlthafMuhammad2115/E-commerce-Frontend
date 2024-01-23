@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ProductService } from 'src/app/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 @Component({
   selector: 'app-person',
@@ -15,13 +15,13 @@ import { CartService } from 'src/app/service/cart.service';
 
 })
 export class PersonComponent {
-  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService) { };
+  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService,private route:Router) { };
   @Input() products: any[] = [];
+  @Input() item:number=0;
   @Input() name: any;
   @Input() routename: any;
   @Input() prod:any;
   color: any[] = this.serv.color;
-  range: any[] = this.serv.range;
   discount: any[] = this.serv.discount;
 
   
@@ -42,8 +42,22 @@ export class PersonComponent {
     this.cartserv.addtocart(item);
   }
 
+  state=false;
+  filter(min:number,max:number){
+    this.state=!this.state;
 
-  item = this.products.length;
+    if(this.state){
+      this.route.navigateByUrl('/filter/'+min+'/'+max);
+    }else{
+      this.route.navigateByUrl('/');
+      
+    }
+    console.log(this.state);
+    
+
+  }
+
+
 
 
 
