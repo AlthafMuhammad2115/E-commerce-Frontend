@@ -1,3 +1,7 @@
+.cat-div{
+    margin: 0px auto;
+}
+
 .cat_card .card img{
     height: 200px;
     width: 200px;
@@ -81,11 +85,7 @@
     border: transparent;
     background-color: transparent;
     font-size: 26px;
-    color: rgba(0, 0, 0,0.7);
-}
-.hover-heart button i:hover{
     color: red;
-    transition: all .2s ease-in-out;
 }
 @media screen and (max-width:768px) {
 

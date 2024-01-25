@@ -21,10 +21,12 @@ export class FoodService {
   
   filterprice(min:number,max:number){
     return this.getall().filter((price:any)=>{
-      const range= price.foodPrice<max && price.foodPrice>min;
+      const range= price.foodPrice<=max && price.foodPrice>=min;
       console.log(range);
       return range;
       
     })
   }
+
+  
 }

@@ -10,9 +10,11 @@ import { FoodService } from 'src/app/service/food.service';
 })
 export class SearchComponent {
   postarray:any=[]
+  searchTerm:string='';
   constructor(private product:ProductService,act:ActivatedRoute, foodserv:FoodService){
     
     act.params.subscribe((params) => {
+      this.searchTerm=params.searchTerm;
       
       if (params.searchTerm) {
         this.postarray = foodserv.searchproduct(params.searchTerm);

@@ -8,12 +8,11 @@ import { BeautyComponent } from './contentpage/beauty/beauty.component';
 import { ProductpageComponent } from './sharepage/productpage/productpage.component';
 import { CartComponent } from './contentpage/cart/cart.component';
 import { SearchComponent } from './sharepage/search/search.component';
-import { FilterComponent } from './sharepage/filter/filter.component';
+import { WishlistComponent } from './contentpage/wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'search/:searchTerm',component:SearchComponent},
-  {path:'Men/:min/:max',component:MenComponent},
   {path:'Men',component:MenComponent},
   {path:'Women',component:WomenComponent},
   {path:'Kids',component:KidsComponent},
@@ -22,7 +21,8 @@ const routes: Routes = [
   {path:'Women/:id',component:ProductpageComponent},
   {path:'Kids/:id',component:ProductpageComponent},
   {path:'Beauty/:id',component:ProductpageComponent},
-  {path:'cart',component:CartComponent}
+  {path:'cart',component:CartComponent},
+  {path:'wishlist',component:WishlistComponent}
   
 ];
 

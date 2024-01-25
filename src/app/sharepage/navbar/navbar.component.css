@@ -7,11 +7,20 @@
 
 
 }
+.list li i:nth-child(1){
+    color:black;
+    
+}
 .list ul{
     margin: 0px;
 }
 .list li .bi:hover{
     color: rgba(0, 0, 0, 1);
+    
+}
+.list li i:nth-child(1):hover{
+    color:red;
+    transition: all .4s ease-in-out;
     
 }
 .list{

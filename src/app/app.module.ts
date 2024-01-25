@@ -21,7 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CartComponent } from './contentpage/cart/cart.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { SearchComponent } from './sharepage/search/search.component';
-import { FilterComponent } from './sharepage/filter/filter.component';
+import { WishlistComponent } from './contentpage/wishlist/wishlist.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { FilterComponent } from './sharepage/filter/filter.component';
     ProductpageComponent,
     CartComponent,
     SearchComponent,
-    FilterComponent,
+    WishlistComponent,
     
 
 

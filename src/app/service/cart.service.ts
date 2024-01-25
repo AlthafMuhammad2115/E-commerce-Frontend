@@ -10,6 +10,8 @@ export class CartService {
   constructor(private serv:ProductService) { }
   public cartitemlist:any=[];
   public productlist=new BehaviorSubject<any>([]);
+  public routelist=new BehaviorSubject<any>([]);
+
   getproduct(){
     return this.productlist.asObservable();
   }
@@ -17,6 +19,10 @@ export class CartService {
     this.cartitemlist.push(...product);
     this.productlist.next(product);
     
+  }
+
+  getroutename(routename:string){
+
   }
 
   addtocart(product:any){
@@ -28,15 +34,12 @@ export class CartService {
       
 
     })
-    console.log("flag",flag)
     if(!flag){
     this.cartitemlist.push(product);
     this.productlist.next(this.cartitemlist);
-    console.log(this.cartitemlist);
     }else{
 
       product.count++;
-      console.log(product.count)
     }
   
 

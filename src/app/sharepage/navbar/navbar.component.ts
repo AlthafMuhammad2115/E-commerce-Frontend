@@ -10,31 +10,37 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private cartserv:CartService,private foodserv:FoodService,private route:Router,private act:ActivatedRoute){
-    act.params.subscribe(params=>{
-      if(params.searchTerm){
-        this.searchTerm=params.searchTerm;
+  constructor(private cartserv: CartService,
+              private foodserv: FoodService, 
+              private route: Router,
+              private act: ActivatedRoute
+              ) {
+    act.params.subscribe(params => {
+      if (params.searchTerm) {
+        this.searchTerm = params.searchTerm;
       }
     })
- }
+
+  }
 
   show = false;
-  onclick(){
-    this.show= !this.show;
+  onclick() {
+    this.show = !this.show;
   }
-  count=0;
-  ngOnInit(){
-    this.cartserv.getproduct().subscribe((res)=>{
-      this.count=res.length;
+  count = 0;
+  ngOnInit() {
+    this.cartserv.getproduct().subscribe((res) => {
+      this.count = res.length;
     })
 
   }
 
-  public searchTerm:string=''
+  public searchTerm: string = ''
 
-  searchproduct(value:string){
-  if(value)
-    this.route.navigateByUrl('/search/'+value);
+  searchproduct(value: string) {
+    if (value)
+      this.route.navigateByUrl('/search/' + value);
+    this.searchTerm = ''
   }
-  
+
 }

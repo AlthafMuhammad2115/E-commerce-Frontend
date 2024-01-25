@@ -3,6 +3,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { ProductService } from 'src/app/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
+import { FoodService } from 'src/app/service/food.service';
+import { WishlistService } from 'src/app/service/wishlist.service';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
@@ -15,7 +17,13 @@ import { CartService } from 'src/app/service/cart.service';
 
 })
 export class PersonComponent {
-  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService,private route:Router) { };
+  constructor(
+    private serv: ProductService,
+    private ar: ActivatedRoute,
+    private cartserv:CartService,
+    private route:Router,private foodserv:FoodService,
+    private wish:WishlistService,
+    ) { };
   @Input() products: any[] = [];
   @Input() item:number=0;
   @Input() name: any;
@@ -25,7 +33,7 @@ export class PersonComponent {
   discount: any[] = this.serv.discount;
 
   
-
+  // hover over cards starts
   hover: any = [];
   enter(index: number) {
 
@@ -37,24 +45,36 @@ export class PersonComponent {
   }
 
   public count = 0;
+  // hover over cards ends
 
+  // add to cart
   addtocart(item :any) {
     this.cartserv.addtocart(item);
+
   }
 
+  // filter by price
   state=false;
   filter(min:number,max:number){
     this.state=!this.state;
 
     if(this.state){
-      this.route.navigateByUrl('/filter/'+min+'/'+max);
+      this.products=this.foodserv.filterprice(min,max);
+      console.log(this.products);
+      
     }else{
-      this.route.navigateByUrl('/');
+      this.products=this.foodserv.getall();
       
     }
-    console.log(this.state);
     
 
+  }
+
+  // add to wishlist
+  AddToWishList(item:any){
+    this.wish.AddToWishList(item);
+    
+    
   }
 
 
