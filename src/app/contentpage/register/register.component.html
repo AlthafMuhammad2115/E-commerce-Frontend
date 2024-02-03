@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="main">
+    <div class="submain container row col-12 mt-3 mb-3">
+      <div class="img col-6 d-none d-lg-flex">
+        <img src="https://www.planstudyabroad.com/images/login.png" alt="" />
+      </div>
+
+      <div class="login-main col-12 col-md-6 ml-5 mr-5 mt-3 mb-3">
+        <div class="login col-lg-6">
+          <h1>Sign Up</h1>
+          <p>Join our fashion community;</p>
+          <div class="input">
+            <form [formGroup]="reg" (ngSubmit)="onsubmit()">
+              <!-- username -->
+              <input
+                type="Username"
+                class="form-control"
+                placeholder="User Name"
+                formControlName="username"
+                [ngClass]="{ 'is-invalid': submit && f.username.errors }"
+              />
+              <div *ngIf="submit && f.username.errors">
+                <div
+                  *ngIf="f.username.errors['required']"
+                  class="warn text-danger"
+                >
+                  Field required
+                </div>
+                <div
+                  *ngIf="f.username.errors['minLength']"
+                  class="warn text-danger"
+                >
+                  minimum length is 6
+                </div>
+              </div>
+              <!-- email -->
+              <input
+                type="Email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': submit && f.email.errors }"
+              />
+              <div *ngIf="submit && f.email.errors">
+                <div
+                  *ngIf="f.email.errors['required']"
+                  class="warn text-danger"
+                >
+                  Field required
+                </div>
+                <div *ngIf="f.email.errors['email']" class="warn text-danger">
+                  invalid format(eg: john@gmail.com)
+                </div>
+              </div>
+              <!-- password -->
+              <input
+                type="password"
+                class="form-control"
+                placeholder="password"
+                formControlName="password"
+                [ngClass]="{ 'is-invalid': submit && f.password.errors }"
+              />
+              <div *ngIf="submit && f.password.errors">
+                <div
+                  *ngIf="f.password.errors['minLength']"
+                  class="warn text-danger"
+                >
+                  minimum 8 digits required
+                </div>
+                <div
+                  *ngIf="f.password.errors['required']"
+                  class="warn text-danger"
+                >
+                  Field required
+                </div>
+              </div>
+
+              <!-- confirm password -->
+
+              <input type="password" class="form-control"
+                formControlName="confirmPassword"
+                placeholder="confirm password"
+                [ngClass]="{'is-invalid':submit && f.confirmPassword.errors}"
+                >
+                <div *ngIf="notsame && submit" class="warn text-danger">
+                  password mismatch
+                </div>
+                <div *ngIf="submit && f.confirmPassword.errors">
+                    <div
+                      *ngIf="f.confirmPassword.errors['required']"
+                      class="warn text-danger"
+                    >
+                      Field required
+                    </div>
+                  </div>
+              <button class="form-control btn btn-primary">Sign In</button>
+            </form> 
+          </div>
+        </div>
+        <div class="signin col-lg-6 mt-5">
+          <p>Already registered ? &nbsp;<a routerLink="/login" [queryParams]="{ReturnUrl:ReturnUrl}">Log-in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
