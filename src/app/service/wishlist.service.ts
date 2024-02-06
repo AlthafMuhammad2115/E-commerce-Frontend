@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WishlistService {
 
-  constructor() { }
+  constructor(private toast:ToastrService) { }
   wishlistitem:any=[];
   listitem=new BehaviorSubject<any>([]);
 
@@ -24,6 +25,10 @@ export class WishlistService {
     if(!flag){
     this.wishlistitem.push(item);
     this.listitem.next(this.wishlistitem);
+      this.toast.success(`${item.name} added to wishlist`,"Successfully added",{
+        positionClass: 'toast-bottom-right', 
+        timeOut:1000
+      })
     }
     
     

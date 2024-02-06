@@ -39,7 +39,9 @@ export class LoginComponent {
     console.log("hello")
     
     this.userserv.login({email:this.f.email.value,password:this.f.password.value}).subscribe(res=>{
-      console.log(res+"res");
+      console.log("how r u");
+      
+      console.log(res.status);
       
       if(res.status===302){
         alert('login success')

@@ -2,27 +2,30 @@
     list-style: none;
    padding: 0px 40px;
    cursor: pointer;
-   color: rgba(0, 0, 0, 0.6);
-
-
+   border: 1px solid white;
+}
+.inner_list{
+    margin: 0px auto;
 }
 .list li:hover{
     transition: font-weight .1s ease-in;
     color: rgba(0, 0, 0, 1);
+    border: 1px solid black;
 }
 .list li.active{
-    color: black;
+    color: white;
+    background-color: black;
 }
 .list ul{
    display: flex;
+   justify-content: space-between;
 }
 .list{
-    background-color: rgba(0, 0, 0, 0.1);
     height: 50px;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
     position: relative;
+    border-bottom: 1px solid black;
 }
 
 .name{

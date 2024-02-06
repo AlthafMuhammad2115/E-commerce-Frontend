@@ -77,3 +77,15 @@
     cursor: pointer;
 
 }
+.input input{
+    border-radius: 0px;
+    border-color: black;
+}
+.input input::placeholder{
+    color: black;
+}
+.input button{
+    border-radius:0px ;
+    width: 50%;
+    margin: 0px 25%;
+}

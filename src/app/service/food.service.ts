@@ -8,10 +8,7 @@ import { Observable } from 'rxjs';
 export class FoodService {
 
   constructor(private serv:ProductService) {
-    this.serv.GetAll().subscribe((res:any)=>{
-        this.postarray=res
-        
-      });
+  
    }
 
   ngOnInit(){
@@ -23,7 +20,12 @@ export class FoodService {
   getall():any{
     console.log(this.postarray);
     
-    return this.postarray;
+    this.serv.GetAll().subscribe((res:any)=>{
+      this.postarray=res
+      
+    });
+
+    return this.postarray
 
   }
   searchproduct(searchTerm: string) {
@@ -31,7 +33,7 @@ export class FoodService {
       return item.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
   }
-  
+   
   filterprice(min:number,max:number){
     return this.getall().filter((price:any)=>{
       const range= price.price<=max && price.price>=min;

@@ -12,7 +12,7 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder, private userserv: UserService,private actv:ActivatedRoute,private route:Router) { }
   reg!: FormGroup;
   submit = false;
-  ReturnUrl="";
+  ReturnUrl="/login";
   ngOnInit() {
     this.reg = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],

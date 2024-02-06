@@ -23,11 +23,16 @@ import { CartComponent } from './contentpage/cart/cart.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { SearchComponent } from './sharepage/search/search.component';
 import { WishlistComponent } from './contentpage/wishlist/wishlist.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './contentpage/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
-import { timeout } from 'rxjs';
 import { RegisterComponent } from './contentpage/register/register.component';
+import { RatingModule } from 'primeng/rating';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CheckoutComponent } from './sharepage/checkout/checkout.component';
+import { LoadingComponent } from './sharepage/loading/loading.component';
+import { LoadingInterceptor } from './sharepage/interceptor/loading.interceptor';
 
 
 @NgModule({
@@ -49,6 +54,8 @@ import { RegisterComponent } from './contentpage/register/register.component';
     WishlistComponent,
     LoginComponent,
     RegisterComponent,
+    CheckoutComponent,
+    LoadingComponent,
     
 
 
@@ -60,14 +67,17 @@ import { RegisterComponent } from './contentpage/register/register.component';
     MatCheckboxModule,
     MatButtonModule,
     MatBadgeModule,
+    MatButtonToggleModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(
-      
-    )
+    ToastrModule.forRoot(),
+    RatingModule,
+    MatExpansionModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

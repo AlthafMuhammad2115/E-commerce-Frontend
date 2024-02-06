@@ -3,25 +3,33 @@
     font-size: 23px;
     padding: 0px 15px;
     cursor: context-menu;
-    color: rgba(0, 0, 0, .7);
+    color: rgba(0, 0, 0, 1);
 
 
 }
-.list li i:nth-child(1){
+.search input{
+    border: 1px solid black;
+    border-radius: 0px;
+}
+.search input::placeholder{
     color:black;
-    
+}
+.search .form-control:focus{
+    box-shadow: none;
+    outline: none;
+}
+.search button{
+    border-radius: 0px;
+    border-left: transparent;
+    justify-content: start;
+    font-weight: 900;
 }
 .list ul{
     margin: 0px;
 }
-.list li .bi:hover{
-    color: rgba(0, 0, 0, 1);
-    
-}
-.list li i:nth-child(1):hover{
-    color:red;
-    transition: all .4s ease-in-out;
-    
+.bi_col{
+    color: red;
+    cursor: pointer;
 }
 .list{
     display: flex;
@@ -34,9 +42,6 @@
 .list li button{
     border: none;
     background-color: transparent;
-}
-.main{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 h1{
     cursor: context-menu;
@@ -72,4 +77,7 @@ h1{
         padding-top: 6px;
     }
 }
-
+.logo img{
+    width: 70%;
+    height: 70%;
+}

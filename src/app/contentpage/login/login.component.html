@@ -35,7 +35,8 @@
                 class="form-control"
                 placeholder="password"
                 formControlName="password"
-                class="form-control ng-untouched ng-pristine ng-invalid" autocomplete="new-password"
+                [ngClass]="{ 'is-invalid': submit && f.password.errors }"
+
               />
               <div *ngIf="submit && f.password.errors">
                 <div
@@ -51,7 +52,7 @@
                   Field required
                 </div>
               </div>
-              <button class="form-control btn btn-primary">Sign In</button>
+              <button class="form-control btn btn-dark">Sign In</button>
             </form>
           </div>
         </div>

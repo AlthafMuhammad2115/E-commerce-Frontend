@@ -1,18 +1,101 @@
-<div class="main pt-5 pb-5">
+<div class="main container mt-5 mb-5 col-12 row" *ngFor="let item of menudata,let i=index">
+  <div class="img col-md-6 col-12">
+    <span class="heartIcon">
+      <i
+        class="bi"
+        style="font-size: 1.7rem"
+        [class.bi-heart-fill]="ishover"
+        [class.bicol]="ishover"
+        [class.bi-heart]="!ishover"
+        (mouseleave)="isNotHover()"
+        (mouseenter)="isHover()"
+        (click)="addtowishlist(item,i)"
+      ></i>
+    </span>
+    <img *ngIf="!value" src="{{ item.imgUrl }}" alt="" />
 
-<div class="container pt-5 pb-5 ">
-  <div class="row col-12">
-
-
-    <div class="product_img col-md-6 col-12 d-flex align_items_center justify-content-center ">
-      <img src="{{menudata[0].foodImg}}" alt="" class="pt-3">
-      <div class="sale"><h3>Sale!</h3></div>
+    <img *ngIf="value" src="{{ value }}" alt="" />
+    <div class="img_selector col-6 d-flex justify-content-center">
+      <mat-button-toggle-group [(ngModel)]="value" aria-label="Font Style">
+        <mat-button-toggle value="{{ item.imgUrl }}"
+          ><img src="{{ item.imgUrl }}" alt=""
+        /></mat-button-toggle>
+        <mat-button-toggle value="{{ item.imgUrl }}"
+          ><img src="{{ item.imgUrl }}" alt=""
+        /></mat-button-toggle>
+        <mat-button-toggle value="{{ item.imgUrl }}"
+          ><img src="{{ item.imgUrl }}" alt=""
+        /></mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
-    
-    <div class="product_content">
-      
+  </div>
+
+  <div
+    class="product_detials col-md-6 col-12 d-flex flex-column justify-content-center ps-md-5 mt-5 mt-md-0"
+  >
+  <div class="sticky">
+
+    <div class="product_name d-flex flex-column">
+      <h1>{{ item.name }}</h1>
+      <div class="d-flex justify-content-between col-6">
+        <h2>{{ item.price | currency : "INR" }}</h2>
+      </div>
+      <p-rating [(ngModel)]="count" [cancel]="false"></p-rating>
+      <div class="line"></div>
+    </div>
+
+    <div class="product_deals col-12 d-flex flex-column mt-md-3">
+      <div class="size col-md-6 col-8">
+        <div class="d-flex size_button">
+          <mat-button-toggle-group aria-label="Font Style">
+            <mat-button-toggle value="XS">XS</mat-button-toggle>
+            <mat-button-toggle value="S">S</mat-button-toggle>
+            <mat-button-toggle value="M">M</mat-button-toggle>
+            <mat-button-toggle value="L">L</mat-button-toggle>
+            <mat-button-toggle value="XL">XL</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="stock_detials">
+          <div class="d-flex align-items-center">
+            <h1 class="mt-3">INSTOCK</h1>
+            <p class="pt-3">({{ count }} stocks available)</p>
+          </div>
+          <h1>{{ off }}%OFF</h1>
+        </div>
+      </div>
+
+      <div class="product_sale col-md-8 col-12 d-flex justify-content-between">
+        <button class="btn btn-outline-dark user_btn" (click)="AddToCart(item)">
+          Add to Cart
+        </button>
+        <button class="btn btn-outline-dark user_btn" [routerLink]="['/'+item.id+'/checkout']">Buy Now</button>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <div class="product_detial col-md-8 col-12">
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Description </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>Materials</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
 </div>
-
 </div>

@@ -1,34 +1,96 @@
-.main{
-    background-color: #eee;
+.user_btn {
+  border-radius: 0;
 }
-.container{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    background-color: white;
+.main {
+  margin: auto auto;
 }
-.product_img{
-    position: relative;
-
+.size_button mat-button-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: larger;
+  border: 1px solid black;
+  color: black;
 }
-.product_img img{
+.size_button mat-button-toggle:hover {
+  background-color: black;
+  color: aliceblue;
+  transition: all 0.3s ease-in-out;
+}
+.size_button mat-button-toggle-group,.img_selector mat-button-toggle-group{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: transparent;
+}
+.size_button .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  background-color: black;
+  color: white;
+}
+.size_button .mat-button-toggle-group-appearance-standard
+  .mat-button-toggle-appearance-standard
+  + .mat-button-toggle-appearance-standard {
+    border-left: 1px solid black;
+}
+.img img{
     width: 100%;
 }
-
-.product_img .sale{
-    border-radius: 50%;
+.img{
+  position: relative;
+}
+.img .heartIcon{
+  position: absolute;
+  top: 0;
+  right:0 ;
+}
+.line{
+    height: 1px;
+    width: 70%;
     background-color: black;
-    position: absolute;
-    padding: auto auto;
-    width: 70px;
-    height: 70px;
+    margin: 20px 0px;
+}
+.img_selector mat-button-toggle {
+    width: 60px;
+    height: 60px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: larger;
+    border: 1px solid black;
+    color: black;
+  }
+  .img_selector{
+    margin: 0px auto;
+  }
+  
+  .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+  }
+  .product_detials{
+    height: fit-content;
+  }
+  .product_detials{
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
-    left: 0;
-}
-.product_img .sale h3{
-    color: beige;
-    font-size: 23px;
-    margin: 3px;
-
-}
+  }
+  
+  .product_sale button{
+    width: 150px;
+  }
+  
+  .bicol{
+    color: red;
+    cursor: pointer;
+  }
+  @media screen and (max-width:768px)  {
+    .line{
+      width: 100%;
+    }
+  }

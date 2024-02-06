@@ -1,3 +1,15 @@
 .not-found{
     height: 400px;
 }
+.not-found button{
+    border-radius: 0px;
+}
+.not-found h1{
+    font-weight: 300;
+}
+.not-found span{
+    background-color: black;
+    color: white;
+    font-weight: 300;
+    padding: 4px;
+}

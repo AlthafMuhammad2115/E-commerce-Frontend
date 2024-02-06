@@ -1,0 +1,10 @@
+.user_detials form input{
+    border-color: black;
+    border-radius: 0px;
+}
+.user_detials form input::placeholder{
+    color: black;
+}
+.name{
+    width: 100%;
+}

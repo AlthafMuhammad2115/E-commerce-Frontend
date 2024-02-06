@@ -11,6 +11,7 @@ import { SearchComponent } from './sharepage/search/search.component';
 import { WishlistComponent } from './contentpage/wishlist/wishlist.component';
 import { LoginComponent } from './contentpage/login/login.component';
 import { RegisterComponent } from './contentpage/register/register.component';
+import { CheckoutComponent } from './sharepage/checkout/checkout.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'wishlist',component:WishlistComponent},
   {path:'login',component:LoginComponent},
   {path:'SignUp',component:RegisterComponent},
+  {path:':id/checkout',component:CheckoutComponent},
   
 ];
 

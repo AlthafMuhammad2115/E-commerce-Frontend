@@ -1,11 +1,11 @@
 <div
-  class="not-found container d-flex flex-column justify-content-center align-items-center"
+  class="not-found  container d-flex flex-column justify-content-center align-items-center"
   *ngIf="postarray.length == 0"
 >
-  <h3>you searched for <span [style.color]="'blue'"> {{searchTerm}}</span></h3>
+  <h3>you searched for <span> {{searchTerm}}</span></h3>
   <img src="../../../assets/NoSearchResult.png" alt="" style="width: 150px; height: 150px;">
-  <h1>We Couldn't find any matches</h1>
-  <button class="btn btn-outline-dark" routerLink="/">Go to home</button>
+  <h1>We Couldn't find any matches?</h1>
+  <button class="btn btn-outline-dark" routerLink="/">Home</button>
 </div>
 <app-person
   [products]="postarray"

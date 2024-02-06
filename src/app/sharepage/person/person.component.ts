@@ -26,7 +26,6 @@ export class PersonComponent {
     ) { };
   @Input() products: any[] = [];
   @Input() item:number=0;
-  @Input() name: any;
   @Input() routename: any;
   @Input() prod:any;
   color: any[] = this.serv.color;
@@ -54,11 +53,11 @@ export class PersonComponent {
   }
 
   // filter by price
-  state=false;
-  filter(min:number,max:number){
-    this.state=!this.state;
+  state:boolean[]=[];
+  filter(min:number,max:number,i:number){
+    this.state[i]=!this.state[i];
 
-    if(this.state){
+    if(this.state[i]){
       this.products=this.foodserv.filterprice(min,max);
       console.log(this.products);
       
@@ -85,8 +84,7 @@ export class PersonComponent {
   }
 
 
-
-
+  
 
 
 

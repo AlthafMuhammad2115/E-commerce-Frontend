@@ -4,17 +4,39 @@
       <button (click)="onclick()"><i class="bi bi-list"></i></button>
     </div>
     <div class="logo d-flex align-items-center col-3">
-      <h1 routerLink="/">Godope</h1>
+      <img routerLink="/" src="../../../assets/Godope..png" alt="">
     </div>
-    <div class="search col-4">
-      <input type="text" placeholder="Search" class="form-control" #s (keyup.enter)="searchproduct(searchTerm)"  [(ngModel)]="searchTerm" />
+    <div class="search col-4 d-flex">
+      <input
+        type="text"
+        placeholder="Search..."
+        class="form-control" 
+        #s
+        [(ngModel)]="searchTerm"
+      />
+      <button class="btn btn-outline-dark" (click)="searchproduct(searchTerm)">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
     <div class="list col-4 col-md-5">
       <ul class="d-flex">
-        <li routerLink="/wishlist"><i class="bi bi-heart-fill"></i></li>
+        <li routerLink="/wishlist">
+          <i
+            class="bi"
+            [class.bi-heart]="hover"
+            [class.bi-heart-fill]="!hover"
+            [class.bi_col]="!hover"
+            (mouseenter)="ishover()"
+            (mouseleave)="isnothover()"
+          ></i>
+        </li>
         <li routerLink="/cart">
           <i class="bi bi-cart"></i>
-          <mat-icon *ngIf="count!=0" matBadge="{{count}}" matBadgeColor="warn"></mat-icon>
+          <mat-icon
+            *ngIf="count != 0"
+            matBadge="{{ count }}"
+            matBadgeColor="warn"
+          ></mat-icon>
         </li>
         <li routerLink="/login"><i class="bi bi-person"></i></li>
       </ul>

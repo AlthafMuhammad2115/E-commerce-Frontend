@@ -20,7 +20,7 @@ export class NavbarComponent {
         this.searchTerm = params.searchTerm;
       }
     })
-
+    
   }
 
   show = false;
@@ -28,10 +28,11 @@ export class NavbarComponent {
     this.show = !this.show;
   }
   count = 0;
-  ngOnInit() {
+  ngOnInit():void {
     this.cartserv.getproduct().subscribe((res) => {
       this.count = res.length;
     })
+    
 
   }
 
@@ -41,6 +42,14 @@ export class NavbarComponent {
     if (value)
       this.route.navigateByUrl('/search/' + value);
     this.searchTerm = ''
+  }
+
+  hover:boolean=true;
+  ishover(){
+    this.hover=false;
+  }
+  isnothover(){
+    this.hover=true;
   }
 
 }
