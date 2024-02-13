@@ -37,22 +37,20 @@ export class LoginComponent {
     this.submit=true;
     if(this.reg.invalid)return;
     console.log("hello")
+    let userlog={
+      email:this.f.email.value,
+      password:this.f.password.value
+    }
+    console.log(`userlog`,userlog);
     
-    this.userserv.login({email:this.f.email.value,password:this.f.password.value}).subscribe(res=>{
-      console.log("how r u");
+    
+    this.userserv.login(userlog).subscribe(res=>{
+      console.log(`response`,res);
       
-      console.log(res.status);
-      
-      if(res.status===302){
-        alert('login success')
-      this.route.navigateByUrl('/Men')
-      console.log("worked");
-      
-      }else{
-        alert('login failed')
-      }
-        
-      })
+    },
+    (error) => {
+      console.error('Error:', error);
+    })
   }
 
 }

@@ -10,12 +10,14 @@
         (mouseleave)="isNotHover()"
         (mouseenter)="isHover()"
         (click)="addtowishlist(item,i)"
+        (click)="ishover"
       ></i>
     </span>
     <img *ngIf="!value" src="{{ item.imgUrl }}" alt="" />
 
     <img *ngIf="value" src="{{ value }}" alt="" />
     <div class="img_selector col-6 d-flex justify-content-center">
+
       <mat-button-toggle-group [(ngModel)]="value" aria-label="Font Style">
         <mat-button-toggle value="{{ item.imgUrl }}"
           ><img src="{{ item.imgUrl }}" alt=""
@@ -47,18 +49,21 @@
     <div class="product_deals col-12 d-flex flex-column mt-md-3">
       <div class="size col-md-6 col-8">
         <div class="d-flex size_button">
-          <mat-button-toggle-group aria-label="Font Style">
-            <mat-button-toggle value="XS">XS</mat-button-toggle>
-            <mat-button-toggle value="S">S</mat-button-toggle>
-            <mat-button-toggle value="M">M</mat-button-toggle>
-            <mat-button-toggle value="L">L</mat-button-toggle>
-            <mat-button-toggle value="XL">XL</mat-button-toggle>
+          <mat-button-toggle-group aria-label="Font Style" [(ngModel)]="state" >
+            <mat-button-toggle  state=1>XS</mat-button-toggle>
+            <mat-button-toggle state=1>S</mat-button-toggle>
+            <mat-button-toggle state=1>M</mat-button-toggle>
+            <mat-button-toggle state=1>L</mat-button-toggle>
+            <mat-button-toggle state=1>XL</mat-button-toggle>
           </mat-button-toggle-group>
+        </div>
+        <div class="warn text-danger" *ngIf="submit && state==0">
+          select a size
         </div>
         <div class="stock_detials">
           <div class="d-flex align-items-center">
             <h1 class="mt-3">INSTOCK</h1>
-            <p class="pt-3">({{ count }} stocks available)</p>
+            <p class="pt-3">({{ item.stock }} stocks available)</p>
           </div>
           <h1>{{ off }}%OFF</h1>
         </div>
@@ -68,7 +73,7 @@
         <button class="btn btn-outline-dark user_btn" (click)="AddToCart(item)">
           Add to Cart
         </button>
-        <button class="btn btn-outline-dark user_btn" [routerLink]="['/'+item.id+'/checkout']">Buy Now</button>
+        <button class="btn btn-outline-dark user_btn" (click)="clicked(item)">Buy Now</button>
       </div>
       <div class="line"></div>
     </div>

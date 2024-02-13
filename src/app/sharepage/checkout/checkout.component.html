@@ -1,31 +1,151 @@
-<div class="container main">
-  <div class="col-12 user_detials col-md-6">
-    <h1>Detials</h1>
-    <form class="d-flex flex-column jusify-content-between col-12">
-      <div class="name d-flex col-12">
+<div
+  class="col-12 logo d-flex justify-content-center align-items-center flex-column pt-3"
+>
+  <img src="../../../assets/Godope..png" alt="" [width]="200" />
+  <p class="pt-3">Checkout</p>
+</div>
+<div class="container main pt-5 row" *ngFor="let item of menudata">
+  <div class="col-12 user_detials col-md-6 pt-3">
+    <div class="col-md-10 user_detials_wrapper">
+      <form
+        [formGroup]="reg"
+        class="d-flex flex-column jusify-content-between col-12"
+        (ngSubmit)="onsubmit()"
+      >
+        <div class="name d-flex justify-content-between">
+          <div class="d-flex flex-column col-6 pe-1 input">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="*FIRST NAME"
+              formControlName="firstname"
+            />
+            <div *ngIf="submit && f.firstname.errors" @close @open>
+              <div
+                *ngIf="f.firstname.errors['required']"
+                class="warn text-danger error"
+              >
+                Field Required
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column col-6 ps-1 input">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="*LAST NAME"
+              formControlName="lastname"
+            />
+            <div *ngIf="submit && f.lastname.errors" @close @open>
+              <div
+                *ngIf="f.lastname.errors['required']"
+                class="warn text-danger error"
+              >
+                Field Required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input">
+        <input
+          type="number"
+          class="form-control col-12"
+          placeholder="*PHONE NUMBER"
+          formControlName="phone"
+        /> 
+        <div *ngIf="submit && f.phone.errors" @close @open>
+          <div *ngIf="f.phone.errors['required']" class="warn text-danger error" @close @open>
+            Field Required
+          </div>
+          <div *ngIf="f.phone.errors['minength']" class="warn text-danger error" @close @open>
+            10 digit required
+          </div>
+        </div>
+      </div>
+        <div class="input">
         <input
           type="text"
-          class="form-control col-3"
-          placeholder="FIRST NAME"
+          class="form-control col-12"
+          placeholder="*EMAIL"
+          formControlName="email"
         />
-        <input type="text" class="form-control col-6" placeholder="LAST NAME" />
+        <div *ngIf="submit && f.email.errors" @close @open>
+          <div *ngIf="f.email.errors['required']" class="warn text-danger error" @close @open>
+            Field Required
+          </div>
+          <div *ngIf="f.email.errors['email']" class="warn text-danger error" @close @open>
+            Invalid format(eg: haris@gmail.com)
+          </div>
+        </div>
       </div>
-      <input
-        type="text"
-        class="form-control col-12"
-        placeholder="HOUSE NO/BUILDING NAME"
-      />
-      <input
-        type="text"
-        class="form-control col-12"
-        placeholder="AREA/LOCALITY"
-      />
-      <input
-        type="text"
-        class="form-control col-12"
-        placeholder="VILLAGE/TOWN"
-      />
-      <input type="text" class="form-control col-12" placeholder="PINCODE" />
-    </form>
+      <div class="input">
+        <input
+          type="text"
+          class="form-control col-12"
+          placeholder="*ADDRESS"
+          formControlName="address"
+        />
+        <div *ngIf="submit && f.address.errors" @close @open>
+          <div *ngIf="f.address.errors['required']" class="warn text-danger error">
+            Field Required
+          </div>
+        </div>
+      </div>
+      <div class="input">
+        <input
+          type="number"
+          class="form-control col-12"
+          placeholder="*PINCODE"
+          formControlName="pincode"
+        />
+        <div *ngIf="submit && f.pincode.errors" @close @open>
+          <div *ngIf="f.pincode.errors['required']" class="warn text-danger error" >
+            Field Required
+          </div>
+        </div>
+      </div>
+
+        <button class="btn btn-outline-dark col-6 but">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <div
+    class="col-12 col-md-6 checkout d-flex flex-column jusify-content-between pt-5"
+  >
+    <div class="checkout_wrapper col-6">
+    <div class="product_price d-flex flex-column align-items-center">
+      <div class="p">
+        <span class="pname" >order price</span>
+        <span>:</span>
+        <span>{{item.price|currency:'INR'}}</span>
+      </div>
+      <div class="p">
+        <span class="pname">delivery</span>
+        <span>:</span>
+        <span>0</span>
+      </div>
+      <div class="line mb-1 mt-3 "></div>
+    </div>
+
+    <div class="total_price  d-flex flex-column align-items-center jus">
+      <div class="p">
+        <span class="pname">Total</span>
+        <span>:</span>
+        <span>{{item.price |currency:'INR'}}</span>
+      </div>
+      <div class="line mb-3 mt-1"></div> 
+    </div>
+    
+    <div class="checkout_btn  d-flex flex-column align-items-center  ">
+
+      <button class="but btn btn-outline-dark col-8 mt-0 pt-1 pb-1 " (click)="pay()">
+        Checkout
+      </button>
+    </div>
+    
+  </div>
+  
   </div>
 </div>

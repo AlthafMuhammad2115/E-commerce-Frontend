@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { count } from 'rxjs';
 import { ProductService } from 'src/app/product.service';
 import { CartService } from 'src/app/service/cart.service';
@@ -16,12 +16,13 @@ export class ProductpageComponent {
   menudata: any;
   postarray: any[] = [];
   value!: number;
+  state:number=0;
   count:number=3
   off:number=30
   panelOpenState = false;
 style: any;
 ishover:boolean=false;
-  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService,private wishserv:WishlistService) {
+  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService,private wishserv:WishlistService,private route:Router) {
 
     this.serv.GetAll().subscribe(res => {
       this.postarray = res;
@@ -37,7 +38,10 @@ ishover:boolean=false;
     })
 
 
+
   }
+  
+  
 
   AddToCart(item:any){
     this.cartserv.addtocart(item);
@@ -59,8 +63,13 @@ ishover:boolean=false;
   addtowishlist(item:any,i:number){
     this.wishserv.AddToWishList(item,this.cart,i)
   }
-  
- 
+  submit=false;
+ clicked(item:any){
+  this.submit=true;
+  if(this.state!=0){
+    this.route.navigateByUrl('/'+item.id+'/checkout');
+  }
+ }
   
   
 

@@ -7,10 +7,20 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { LOGIN_URL ,SIGNUP_URL} from '../urls/urls';
 import { Iregister } from '../models/Iregister';
 
+
+function _window() : any {
+   return window;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  get nativeWindow() : any {
+    return _window();
+  }
+
   public usersubject=new BehaviorSubject<user>(new user())
   userobservable:Observable<user>
 
@@ -18,7 +28,8 @@ export class UserService {
     this.userobservable=this.usersubject.asObservable()
   }
 
-  login(userLog: Iuser) {
+  login(userLog: any) {
+    debugger;
     console.log('hai');
     
     return this.http.post<any>(LOGIN_URL, userLog)
@@ -29,7 +40,6 @@ export class UserService {
       tap({
         next: (user) => {
           // Handle successful login
-          console.log("hai",user);
           this.usersubject.next(user);
           this.toast.success(
             'Login successful',

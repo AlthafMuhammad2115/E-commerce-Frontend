@@ -12,6 +12,7 @@ import { WishlistComponent } from './contentpage/wishlist/wishlist.component';
 import { LoginComponent } from './contentpage/login/login.component';
 import { RegisterComponent } from './contentpage/register/register.component';
 import { CheckoutComponent } from './sharepage/checkout/checkout.component';
+import { NotfoundComponent } from './sharepage/notfound/notfound.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -24,11 +25,15 @@ const routes: Routes = [
   {path:'Women/:id',component:ProductpageComponent},
   {path:'Kids/:id',component:ProductpageComponent},
   {path:'Beauty/:id',component:ProductpageComponent},
+  {path:'item/:id',component:ProductpageComponent},
   {path:'cart',component:CartComponent},
   {path:'wishlist',component:WishlistComponent},
   {path:'login',component:LoginComponent},
   {path:'SignUp',component:RegisterComponent},
   {path:':id/checkout',component:CheckoutComponent},
+
+
+  {path:'**',component:NotfoundComponent}
   
 ];
 

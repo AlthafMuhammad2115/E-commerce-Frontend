@@ -1,10 +1,77 @@
+.container{
+    margin: 0px auto
+}
+.logo p{
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 25px
+} 
 .user_detials form input{
     border-color: black;
     border-radius: 0px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    height: 50px;
+    font-size: 12px;
+}
+.user_detials{
+    background-color: rgba(255,255,255,.5);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .user_detials form input::placeholder{
     color: black;
 }
 .name{
     width: 100%;
+}
+
+.user_detials_wrapper {
+    margin: 0px auto;
+}
+.user_detials form input:focus::placeholder{
+    transition: all .2s ease-in-out;
+    color: transparent;
+}
+.but{
+    border-radius: 0px;
+    font-weight: 400;
+    margin: 0px auto;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+.line{
+    height: 1px;
+    background-color: black;
+    width: 75%;
+}
+.checkout_wrapper{
+    margin: 0px auto;
+}
+.checkout .p{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.p span{
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.p .pname{
+    width: 150px;
+}
+.input{
+    position: relative;
+    padding-bottom: 20px;
+}
+.error{
+    position: absolute;
+    bottom: 0px;
 }

@@ -33,6 +33,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { CheckoutComponent } from './sharepage/checkout/checkout.component';
 import { LoadingComponent } from './sharepage/loading/loading.component';
 import { LoadingInterceptor } from './sharepage/interceptor/loading.interceptor';
+import { NavigationComponent } from './sharepage/navigation/navigation.component';
+import { NotfoundComponent } from './sharepage/notfound/notfound.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { LoadingInterceptor } from './sharepage/interceptor/loading.interceptor'
     RegisterComponent,
     CheckoutComponent,
     LoadingComponent,
+    NavigationComponent,
+    NotfoundComponent,
     
 
 
@@ -71,7 +75,10 @@ import { LoadingInterceptor } from './sharepage/interceptor/loading.interceptor'
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }
+    ),
     RatingModule,
     MatExpansionModule
   ],

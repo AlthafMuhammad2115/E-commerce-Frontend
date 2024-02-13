@@ -92,6 +92,13 @@
   background-color: transparent;
   border-radius: 0px;
 }
+.filter{
+  position: sticky;
+  top: 0px;
+  position: -webkit-sticky;
+  height: fit-content;
+}
+
 mat-checkbox{
   width: fit-content;
 }
