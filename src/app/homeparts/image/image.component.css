@@ -1,0 +1,25 @@
+.hero_section,.banner{
+    position: relative;
+    
+}
+img{
+    width: 100%;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.overlay h1{
+    color:white;
+}
+.overlay button{
+    border-radius: 0px;
+    color: white;
+    border: 1px white solid;
+}
+.overlay  button:hover{
+    background-color: white;
+    color: black;
+}

@@ -35,6 +35,9 @@ import { LoadingComponent } from './sharepage/loading/loading.component';
 import { LoadingInterceptor } from './sharepage/interceptor/loading.interceptor';
 import { NavigationComponent } from './sharepage/navigation/navigation.component';
 import { NotfoundComponent } from './sharepage/notfound/notfound.component';
+import { ImageComponent } from './homeparts/image/image.component';
+import { ProductSliderComponent } from './homeparts/product-slider/product-slider.component';
+import * as $ from 'jquery';
 
 
 @NgModule({
@@ -60,6 +63,8 @@ import { NotfoundComponent } from './sharepage/notfound/notfound.component';
     LoadingComponent,
     NavigationComponent,
     NotfoundComponent,
+    ImageComponent,
+    ProductSliderComponent,
     
 
 
@@ -80,7 +85,7 @@ import { NotfoundComponent } from './sharepage/notfound/notfound.component';
     }
     ),
     RatingModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
