@@ -18,5 +18,18 @@ export class AppComponent {
         this.isCheckoutPage = event.url.includes('/checkout');
       }
     });
+
+    this.router.events.subscribe(evt => {
+      console.log("hai");
+    
+      if (evt instanceof NavigationEnd) {
+        let x = document.getElementsByClassName('mat-drawer-content');
+        if (x.length > 0) x[0].scrollTo(0, 0);
+      }
+    });
+    
   }
+
+  
+
 }

@@ -1,14 +1,21 @@
-<div class="owl-carousel owl-theme">
-    <div class="item"><h4>1</h4></div>
-    <div class="item"><h4>2</h4></div>
-    <div class="item"><h4>3</h4></div>
-    <div class="item"><h4>4</h4></div>
-    <div class="item"><h4>5</h4></div>
-    <div class="item"><h4>6</h4></div>
-    <div class="item"><h4>7</h4></div>
-    <div class="item"><h4>8</h4></div>
-    <div class="item"><h4>9</h4></div>
-    <div class="item"><h4>10</h4></div>
-    <div class="item"><h4>11</h4></div>
-    <div class="item"><h4>12</h4></div>
+
+<div class="container main mt-5 mb-5">
+<p class=" section p-3" *ngIf="state" [routerLink]="'/'+routename">{{section}}</p>
+
+  <owl-carousel-o [options]="customOptions" >
+
+    <ng-template carouselSlide *ngFor="let item of image">
+      <div class="image_wrapper ms-3">
+        
+        <div class="overlay d-flex justify-content-center align-items-center">
+            <p>{{item.name}}</p>
+        </div>
+          <div class="image d-flex align-items-center p-3">
+            <img [src]="item.img" alt="" />
+          </div>
+
+      </div>
+    </ng-template>
+
+  </owl-carousel-o>
 </div>

@@ -1,7 +1,11 @@
-<div class="container-fluid hero_section col-12">
-    <div class="overlay d-flex flex-column align-items-center justify-content-end pb-5">
-        <h1>Start Shopping</h1>
-        <button class="btn btn-outline-dark">SHOP NOW</button>
+<div class=" hero_section col-12">
+    <div class="overlay d-flex flex-column align-items-start justify-content-center pt-5 col-12 ps-5">
+        <div class="overlay_content col-8 col-md-4">
+        <h1>{{heading}}</h1>
+        <p>{{content}}</p>
+
+        <button class="btn btn-outline-dark">{{btn}}</button>
     </div>
-    <img src="../../../assets/mike-von-bWUOx0SaSAk-unsplash.jpg"  alt="">
+    </div>
+    <img [src]="img"  alt="" [style.width]="width" [style.height]="height">
 </div>

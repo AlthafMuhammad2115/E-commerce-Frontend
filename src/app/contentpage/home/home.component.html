@@ -1,4 +1,56 @@
-<div class=" col-12 main">
-    <app-image></app-image>
-    <app-product-slider></app-product-slider>
+<div class="col-12 main mat-drawer-content">
+  <!-- <app-product-slider [image]="image"></app-product-slider> -->
+  <app-image
+    heading="ELEVATE YOUR STYLE"
+    width="100%"
+    height="500px"
+    content="Dive into the realm of unparalleled fashion at Godope, where each garment narrates a story of individuality. Elevate your style journey with our curated collection of unique and expressive pieces."
+    btn="SHOP NOW"
+    img="../../../assets/img5.jpg"
+  ></app-image>
+
+  <app-product-slider
+
+   [image]="person"
+   [state]="false"  
+   [auto]="false"
+   ></app-product-slider>
+
+   <app-image
+    heading="SAVE 30% TODAY!"
+    width="100%"
+    height="200px"
+    btn="Discover"
+    img="../../../assets/img7.jpg"
+  ></app-image>
+
+  <app-product-slider
+  [image]="men"
+  section="Men"
+  routename="Men"
+  ></app-product-slider>
+
+  <app-product-slider
+  [image]="men"
+  section="Women"
+  routename="Women"
+
+  ></app-product-slider>
+
+  <app-image
+    heading="NEW ARRIVALS"
+    content="A modern update on lace, embroidery and tailoring."
+    width="100%"
+    height="200px"
+    btn="Discover Now !"
+    img="../../../assets/img1.jpg"
+  ></app-image>
+
+  <app-product-slider
+  [image]="men"
+  routename="Kids"
+  section="Kids"
+  ></app-product-slider>
+
+  
 </div>

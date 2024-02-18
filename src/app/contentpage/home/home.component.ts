@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/product.service';
+import { HomeserviceService } from 'src/app/service/homeservice.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,17 @@ import { ProductService } from 'src/app/product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
-  constructor( private service:ProductService,private http:HttpClient){
-    
+  state:any;
+  constructor( private service:ProductService,private http:HttpClient,private home :HomeserviceService){
+    this.state=false;
   }
 
+  public men=this.home.Men
+  public person=this.home.person
+
+  
   ngOnInit(): void {
+
    this.service.GetAll().subscribe(
         (res) => {
           console.log(res);
