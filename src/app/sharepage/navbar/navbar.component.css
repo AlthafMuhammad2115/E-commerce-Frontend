@@ -85,13 +85,12 @@ h1{
 
 .slider_list li{
     list-style: none;
-   padding: 0px 40px;
+    width: 60px;
+    text-align: center;
    cursor: pointer;
    border: 1px solid white;
 }
-.slider_list .inner_list{
-    margin: 0px auto;
-}
+
 .slider_list li:hover{
     transition: font-weight .1s ease-in;
     color: rgba(0, 0, 0, 1);

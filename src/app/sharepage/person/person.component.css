@@ -106,7 +106,23 @@ mat-checkbox{
   .cat-div {
     grid-column-gap: 0px;
   }
-
+  .cat{
+    position: relative;
+  }
+  .filter_btn{
+    border-radius: 0px;
+  }
+  .filter{
+    position: absolute;
+    transition: all .5s ease-in-out;
+    left: -1000px;
+    z-index: 10000;
+    background-color: white;
+  }
+  .filter_active{
+    left: 0px ;
+    transition: all .5s ease-in-out;
+  }
   .cat_card {
     width: 50%;
     display: flex;

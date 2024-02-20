@@ -38,6 +38,7 @@ import { NotfoundComponent } from './sharepage/notfound/notfound.component';
 import { ImageComponent } from './homeparts/image/image.component';
 import { ProductSliderComponent } from './homeparts/product-slider/product-slider.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ),
     RatingModule,
     MatExpansionModule,
-    CarouselModule
+    CarouselModule,
+    MatChipsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}

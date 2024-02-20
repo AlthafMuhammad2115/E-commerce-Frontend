@@ -13,7 +13,7 @@ li,p,h1{
 } */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.form-control:focus,.form-control:active{
+.btn-outline-dark:focus,.form-control:active, .form-control:focus,.form-control:active{
     box-shadow: none;
     outline: none;
 

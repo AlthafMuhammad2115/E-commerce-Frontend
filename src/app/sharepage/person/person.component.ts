@@ -84,7 +84,9 @@ export class PersonComponent {
   }
 
 
-  
+  filterSlide(){
+    document.getElementById('filter_slide')?.classList.toggle('filter_active')
+  }
 
 
 

@@ -28,6 +28,11 @@ tbody tr td{
 .empty img{
     height: 100px;
 }
+
+.empty button{
+    border-radius: 0;
+}
+
 .btns button{
     margin-left: 10px;
     

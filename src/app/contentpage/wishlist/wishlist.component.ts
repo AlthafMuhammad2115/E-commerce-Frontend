@@ -13,10 +13,11 @@ export class WishlistComponent {
 
   products:any=[];
   count:number=0
-
+  len!:any;
   constructor(private wish:WishlistService,private cartserv:CartService,private route:Router){
     this.wish.GetAll().subscribe(res=>{
       this.products=res;
+      this.len=res.length;
     })
   }
 

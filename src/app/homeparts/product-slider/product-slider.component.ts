@@ -21,7 +21,8 @@ export class ProductSliderComponent {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
-    margin:10,
+    margin:0,
+    center:true,
     touchDrag: true,
     pullDrag: true,
     dots: false,
@@ -29,10 +30,11 @@ export class ProductSliderComponent {
     autoplay:this.auto,
     autoplayTimeout:700,
     autoplayHoverPause:true,
+    smartSpeed:450,
     navText: ['', ''],
     responsive: {
       0: {
-        items: 2
+        items: 1
       },
       400: {
         items: 2

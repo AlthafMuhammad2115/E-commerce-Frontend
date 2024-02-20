@@ -4,7 +4,6 @@
 }
 img{
     object-fit: cover;
-    object-position: 0px -17vh;
 }
 .overlay{
     background-color: rgba(0, 0, 0, 0.5);

@@ -10,6 +10,7 @@
         class="form-control"
         #s
         [(ngModel)]="searchTerm"
+        (keyup.enter)="searchproduct(searchTerm)"
       />
       <button class="btn btn-outline-dark" (click)="searchproduct(searchTerm)">
         <i class="bi bi-search"></i>
@@ -60,7 +61,7 @@
     </div>
   </div>
 
-  <div class="slider_list d-flex col-12">
+  <div class="slider_list d-flex justify-content-center col-12"> 
     <div class="col-md-6 col-8 inner_list">
       <ul class="">
         <li routerLink="/Men" routerLinkActive="active">Men</li>

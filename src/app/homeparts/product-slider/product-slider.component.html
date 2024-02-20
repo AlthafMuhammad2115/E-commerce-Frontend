@@ -2,7 +2,7 @@
 <div class="container main mt-5 mb-5">
 <p class=" section p-3" *ngIf="state" [routerLink]="'/'+routename">{{section}}</p>
 
-  <owl-carousel-o [options]="customOptions" >
+  <owl-carousel-o [options]="customOptions" class="carousal">
 
     <ng-template carouselSlide *ngFor="let item of image">
       <div class="image_wrapper ms-3">
