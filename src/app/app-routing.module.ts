@@ -15,7 +15,8 @@ import { CheckoutComponent } from './sharepage/checkout/checkout.component';
 import { NotfoundComponent } from './sharepage/notfound/notfound.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'',redirectTo:'Home',pathMatch:'full'},
+  {path:'Home',component:HomeComponent},
   {path:'search/:searchTerm',component:SearchComponent},
   {path:'Men',component:MenComponent},
   {path:'Women',component:WomenComponent},

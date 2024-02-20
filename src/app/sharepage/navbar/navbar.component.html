@@ -1,16 +1,13 @@
-<div class="main mat-drawer-content" >
-  <div class="navbar col-12 row" >
-    <div class="ham col-1 d-flex align-items-center d-md-none">
-      <button (click)="onclick()"><i class="bi bi-list"></i></button>
+<div class="main mat-drawer-content">
+  <div class="navbar col-12 row">
+    <div class="logo d-flex align-items-center col-md-3 col-4">
+      <img routerLink="/" src="../../../assets/Godope..png" alt="" />
     </div>
-    <div class="logo d-flex align-items-center col-3">
-      <img routerLink="/" src="../../../assets/Godope..png" alt="">
-    </div>
-    <div class="search col-4 d-flex">
+    <div class="search col-md-4 col-6 d-flex">
       <input
         type="text"
         placeholder="Search..."
-        class="form-control" 
+        class="form-control"
         #s
         [(ngModel)]="searchTerm"
       />
@@ -18,8 +15,9 @@
         <i class="bi bi-search"></i>
       </button>
     </div>
-    <div class="list col-4 col-md-5">
-      <ul class="d-flex">
+
+    <div class=" d-md-flex d-none list col-2 col-md-5">
+      <ul class="d-md-flex">
         <li routerLink="/wishlist">
           <i
             class="bi"
@@ -40,7 +38,65 @@
         </li>
         <li routerLink="/login"><i class="bi bi-person"></i></li>
       </ul>
+
+
+      
+
+
+    </div>
+    
+    <div class="hamburger d-md-none d-flex col-2" id="hamburger">
+      <div class="sidebar_toggle" id="sidebar_toggle" (click)="onclick()" >
+        <div class="toggle_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="cross">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </div>
-  <app-list [vis]="show"></app-list>
+
+  <div class="slider_list d-flex col-12">
+    <div class="col-md-6 col-8 inner_list">
+      <ul class="">
+        <li routerLink="/Men" routerLinkActive="active">Men</li>
+        <li routerLink="/Women" routerLinkActive="active">Women</li>
+        <li routerLink="/Kids" routerLinkActive="active">Kids</li>
+        <li routerLink="/Beauty" routerLinkActive="active">Beauty</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="smlist slide col-6 d-sm-block d-md-none">
+    <div class="img d-flex justify-content-center pt-5">
+      <img src="../../../assets/Godope..png" alt="" [style.width]="'80%'" />
+    </div>
+    <div
+      class="ul d-flex flex-column justify-content-around align-items-center col-12 pb-5"
+      [style.height]="'70vh'"
+    >
+      <ul
+        [style.height]="'40vh'"
+        class="d-flex flex-column justify-content-around align-items-center pb-5"
+      >
+      <li routerLink="/Home" routerLinkActive="slider_active" (click)="onclick()">home</li>
+
+        <li routerLink="/wishlist" routerLinkActive="slider_active" (click)="onclick()">
+          wishlist
+        </li>
+        <li routerLink="/cart" routerLinkActive="slider_active" (click)="onclick()">
+          Cart<mat-icon
+            *ngIf="count != 0"
+            matBadge="{{ count }}"
+            matBadgeColor="warn"
+          ></mat-icon>
+        </li >
+        <li routerLink="/login" routerLinkActive="slider_active" (click)="onclick()" >Login</li>
+      </ul>
+    </div>
+  </div>
 </div>

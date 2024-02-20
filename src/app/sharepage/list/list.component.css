@@ -42,6 +42,14 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+.smlist .name{
+    position: fixed;
+    height: 1000vh;
+    width: 50%;
+    z-index: 1000000;
+    background-color: white;
+    top: 0;
+}
 .smlist img{
     width: 110%;
     height: 100px;
@@ -68,9 +76,6 @@
     margin-top: 8px;
     margin-left: 10px;
 }
-.smlist{
-    position: absolute;
-    z-index: 100;
-}
+
 
 
