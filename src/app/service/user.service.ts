@@ -22,7 +22,11 @@ export class UserService {
   }
 
   public usersubject=new BehaviorSubject<any>([])
-  public users:Iregister[]=[]
+  public users:Iregister[]=[{
+    userName:'Althaa',
+    email:'Althaa@gmail.com',
+    password:'Althaa123'
+    }]
 
   constructor(private http:HttpClient,private toast:ToastrService) {
   }
@@ -40,6 +44,10 @@ export class UserService {
     if(this.IsLogged){
       this.toast.success('Successfully Logged In','')
     }
+  }
+
+  logout(){
+    this.IsLogged=false;
   }
 
 
