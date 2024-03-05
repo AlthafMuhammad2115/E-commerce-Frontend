@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import {user} from '../models/user'
 import { Iuser } from '../models/Iuser';
 import { HttpClient } from '@angular/common/http';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import {  ToastrService } from 'ngx-toastr';
 import { LOGIN_URL ,SIGNUP_URL} from '../urls/urls';
 import { Iregister } from '../models/Iregister';
+import { Router } from '@angular/router';
 
 
 function _window() : any {
@@ -21,41 +21,56 @@ export class UserService {
     return _window();
   }
 
-  public usersubject=new BehaviorSubject<user>(new user())
-  userobservable:Observable<user>
+  public usersubject=new BehaviorSubject<any>([])
+  public users:Iregister[]=[]
 
   constructor(private http:HttpClient,private toast:ToastrService) {
-    this.userobservable=this.usersubject.asObservable()
+  }
+  
+  signup(user:Iregister){
+    this.users.push(user);
+    this.usersubject.next(user);
+    return this.usersubject.asObservable()
   }
 
-  login(userLog: any) {
-    debugger;
-    console.log('hai');
+
+  public IsLogged:boolean=false;
+  login(user:Iuser){
+    this.IsLogged=this.users.some(el => el.email === user.email && el.password===user.password);
+    if(this.IsLogged){
+      this.toast.success('Successfully Logged In','')
+    }
+  }
+
+
+  // login(userLog: any) {
+  //   debugger;
+  //   console.log('hai');
     
-    return this.http.post<any>(LOGIN_URL, userLog)
-  }
+  //   return this.http.post<any>(LOGIN_URL, userLog)
+  // }
 
-  signup(userLog:Iregister){
-    return this.http.post<any>(SIGNUP_URL,userLog).pipe(
-      tap({
-        next: (user) => {
-          // Handle successful login
-          this.usersubject.next(user);
-          this.toast.success(
-            'Login successful',
-            'Welcome'
-          );
-        },
-        error: (errors) => {
-          // Handle login failure
-          this.toast.error(
-            errors.error,
-            'Login failed'
-          );
-        }
-      })
-    );
-  }
+  // signup(userLog:Iregister){
+  //   return this.http.post<any>(SIGNUP_URL,userLog).pipe(
+  //     tap({
+  //       next: (user) => {
+  //         // Handle successful login
+  //         this.usersubject.next(user);
+  //         this.toast.success(
+  //           'Login successful',
+  //           'Welcome'
+  //         );
+  //       },
+  //       error: (errors) => {
+  //         // Handle login failure
+  //         this.toast.error(
+  //           errors.error,
+  //           'Login failed'
+  //         );
+  //       }
+  //     })
+  //   );
+  // }
   
 
 

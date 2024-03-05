@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/service/cart.service';
 import { FoodService } from 'src/app/service/food.service';
 import { WishlistService } from 'src/app/service/wishlist.service';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
@@ -23,6 +24,7 @@ export class PersonComponent {
     private cartserv:CartService,
     private route:Router,private foodserv:FoodService,
     private wish:WishlistService,
+    private userserv:UserService
     ) { };
   @Input() products: any[] = [];
   @Input() item:number=0;
@@ -48,7 +50,10 @@ export class PersonComponent {
 
   // add to cart
   addtocart(item :any) {
-    this.cartserv.addtocart(item);
+    if(!this.userserv.IsLogged)
+      this.route.navigateByUrl('/login')
+    else
+      this.cartserv.addtocart(item);
 
   }
 
@@ -75,12 +80,10 @@ export class PersonComponent {
   cart:[]=[]
 
   AddToWishList(item:any,index:number){
-
-    this.wish.AddToWishList(item,this.cart,index);
-    
-    
-    
-    
+    if(!this.userserv.IsLogged)
+      this.route.navigateByUrl('/login')
+    else
+      this.wish.AddToWishList(item,this.cart,index); 
   }
 
 

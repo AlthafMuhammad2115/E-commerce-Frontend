@@ -43,14 +43,23 @@ export class LoginComponent {
     }
     console.log(`userlog`,userlog);
     
-    
-    this.userserv.login(userlog).subscribe(res=>{
-      console.log(`response`,res);
+    this.userserv.login(userlog)
+    if(this.userserv.IsLogged){
+      this.route.navigateByUrl('/Home')
+    }
+    // this.userserv.login(userlog).subscribe(res=>{
+    //   console.log(`response`,res);
       
-    },
-    (error) => {
-      console.error('Error:', error);
-    })
+    // },
+    // (error) => {
+    //   console.error('Error:', error);
+    // })
   }
 
+  IsLogged=this.userserv.IsLogged;
+
 }
+function login() {
+  throw new Error('Function not implemented.');
+}
+

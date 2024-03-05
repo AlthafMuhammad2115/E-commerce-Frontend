@@ -18,7 +18,7 @@
     </div>
 
     <div class=" d-md-flex d-none list col-2 col-md-5">
-      <ul class="d-md-flex">
+      <ul class="d-md-flex" *ngIf="IsLogged">
         <li routerLink="/wishlist">
           <i
             class="bi"
@@ -37,17 +37,22 @@
             matBadgeColor="warn"
           ></mat-icon>
         </li>
-        <li routerLink="/login"><i class="bi bi-person"></i></li>
+        <li ><i class="bi bi-person"></i></li>
       </ul>
 
-
+      <ul class="d-md-flex before justify-content-end align-items-center col-12 me-md-5 " routerLink="/login" *ngIf="!IsLogged">
+        <li>Log In</li>
+      </ul>
       
 
 
     </div>
     
-    <div class="hamburger d-md-none d-flex col-2" id="hamburger">
-      <div class="sidebar_toggle" id="sidebar_toggle" (click)="onclick()" >
+    <div class="hamburger d-md-none d-flex col-2 " id="hamburger" >
+      <ul class="d-md-flex before justify-content-center align-items-center col-12" style="padding: 0px; margin: 0px;" routerLink="/login" *ngIf="!IsLogged">
+        <li class="d-flex justify-content-center">Log In</li>
+      </ul>
+      <div class="sidebar_toggle" id="sidebar_toggle" (click)="onclick()" *ngIf="IsLogged" >
         <div class="toggle_btn">
           <span></span>
           <span></span>

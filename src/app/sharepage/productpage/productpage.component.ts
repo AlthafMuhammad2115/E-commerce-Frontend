@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/product.service';
 import { CartService } from 'src/app/service/cart.service';
 import { FoodService } from 'src/app/service/food.service';
 import { WishlistService } from 'src/app/service/wishlist.service';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-productpage',
@@ -22,7 +23,12 @@ export class ProductpageComponent {
   panelOpenState = false;
 style: any;
 ishover:boolean=false;
-  constructor(private serv: ProductService, private ar: ActivatedRoute,private cartserv:CartService,private wishserv:WishlistService,private route:Router) {
+  constructor(private userserv:UserService,
+    private serv: ProductService,
+    private ar: ActivatedRoute,
+    private cartserv:CartService,
+    private wishserv:WishlistService,
+    private route:Router) {
 
     this.serv.GetAll().subscribe(res => {
       this.postarray = res;
@@ -44,6 +50,9 @@ ishover:boolean=false;
   
 
   AddToCart(item:any){
+    if(!this.userserv.IsLogged)
+      this.route.navigateByUrl('/login')
+    else
     this.cartserv.addtocart(item);
   }
   
@@ -61,14 +70,18 @@ ishover:boolean=false;
   }
   cart:boolean[]=[]
   addtowishlist(item:any,i:number){
-    this.wishserv.AddToWishList(item,this.cart,i)
+    if(!this.userserv.IsLogged)
+      this.route.navigateByUrl('/login')
+    else
+      this.wishserv.AddToWishList(item,this.cart,i)
   }
   submit=false;
  clicked(item:any){
   this.submit=true;
-  if(this.state!=0){
+  if(this.state!=0 && this.userserv.IsLogged)
     this.route.navigateByUrl('/'+item.id+'/checkout');
-  }
+  else if(!this.userserv.IsLogged)
+    this.route.navigateByUrl('login')
  }
   
   

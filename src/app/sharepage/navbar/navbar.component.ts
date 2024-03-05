@@ -3,6 +3,7 @@ import { CartService } from 'src/app/service/cart.service';
 import { count } from 'rxjs';
 import { FoodService } from 'src/app/service/food.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent {
   constructor(private cartserv: CartService,
     private foodserv: FoodService,
     private route: Router,
-    private act: ActivatedRoute
+    private act: ActivatedRoute,
+    private userserv:UserService
   ) {
     act.params.subscribe(params => {
       if (params.searchTerm) {
@@ -58,6 +60,7 @@ export class NavbarComponent {
   }
 
   public vis: any;
+  IsLogged=this.userserv.IsLogged;
 }
 
 

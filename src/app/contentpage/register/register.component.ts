@@ -29,6 +29,7 @@ export class RegisterComponent {
   }
   notsame=false;
   onsubmit() {
+
     this.submit = true;
 
     if (this.reg.invalid) return;
@@ -38,9 +39,8 @@ export class RegisterComponent {
       this.notsame=true;
       return;
     }
-    this.userserv.signup({ userName: this.f.username.value, email: this.f.email.value, password: this.f.password.value }).subscribe( ()=> {
-      this.route.navigateByUrl(this.ReturnUrl)
-
+    this.userserv.signup({ userName: this.f.username.value, email: this.f.email.value, password: this.f.password.value }).subscribe( (res)=> {
+      this.route.navigateByUrl('/login')
     })
 
 
