@@ -9,6 +9,9 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent {
   title = 'learning';
   isCheckoutPage: boolean = false;
+  signup: boolean = false;
+  login: boolean = false;
+  
 
   constructor(private router: Router) {
     // Subscribe to router events to detect navigation changes
@@ -16,6 +19,8 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         // Check if the current route is the checkout component
         this.isCheckoutPage = event.url.includes('/checkout');
+        this.signup = event.url.includes('/SignUp');
+        this.login = event.url.includes('/login');
       }
     });
 
@@ -29,6 +34,9 @@ export class AppComponent {
     });
     
   }
+  // OnActivate(e:any, outlet:any){
+  //   outlet.scrollTop=0;
+  // }
 
   
 

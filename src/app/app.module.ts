@@ -87,7 +87,7 @@ import {MatChipsModule} from '@angular/material/chips';
     RatingModule,
     MatExpansionModule,
     CarouselModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}

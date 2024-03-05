@@ -6,20 +6,13 @@
           <h2 >Price</h2>
         </div>
         <div class="price_range ps-3 d-flex flex-column">
-          <mat-checkbox
-            class="example-margin"
-            (change)="filter(600, 700,1)"
-          >600-700</mat-checkbox
-          >
-          <mat-checkbox class="example-margin" (change)="filter(700, 750,2)"
-            >700-750</mat-checkbox
-          >
-          <mat-checkbox class="example-margin" (change)="filter(750, 800,3)"
-            >750-800</mat-checkbox
-          >
-          <mat-checkbox class="example-margin" (change)="filter(800, 2000,4)" 
-            >800-2000</mat-checkbox
-          >
+          <mat-chip-listbox class="d-flex flex-column">
+            <mat-chip-option color="warn" (selectionChange)="filter(600, 700,1)" >600-700</mat-chip-option>
+            <mat-chip-option color="warn" (selectionChange)="filter(700, 750,2)">700-750</mat-chip-option>
+            <mat-chip-option color="warn"  (selectionChange)="filter(750, 800,3)">750-800</mat-chip-option>
+            <mat-chip-option color="warn"  (selectionChange)="filter(800, 2000,4)">800-2000</mat-chip-option>
+          </mat-chip-listbox>
+    
         </div>
       </div>
 
