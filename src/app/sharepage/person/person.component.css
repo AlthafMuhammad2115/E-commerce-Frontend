@@ -107,6 +107,9 @@ mat-chip-option{
   background-color: black !important;
   color: white !important;
 }
+.row{
+  margin-left: 0px;
+}
 @media screen and (max-width: 768px) {
   .cat-div {
     grid-column-gap: 0px;

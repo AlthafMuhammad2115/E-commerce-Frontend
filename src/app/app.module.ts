@@ -14,7 +14,6 @@ import { MenComponent } from './contentpage/men/men.component';
 import { WomenComponent } from './contentpage/women/women.component';
 import { KidsComponent } from './contentpage/kids/kids.component';
 import { HomeComponent } from './contentpage/home/home.component';
-import { BeautyComponent } from './contentpage/beauty/beauty.component';
 import { PersonComponent } from './sharepage/person/person.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductpageComponent } from './sharepage/productpage/productpage.component';
@@ -51,7 +50,6 @@ import {MatChipsModule} from '@angular/material/chips';
     WomenComponent,
     KidsComponent,
     HomeComponent,
-    BeautyComponent,
     PersonComponent,
     ProductpageComponent,
     CartComponent,

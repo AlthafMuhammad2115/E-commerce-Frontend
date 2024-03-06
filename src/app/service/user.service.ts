@@ -40,7 +40,9 @@ export class UserService {
 
   public IsLogged:boolean=false;
   login(user:Iuser){
-    this.IsLogged=this.users.some(el => el.email === user.email && el.password===user.password);
+    this.IsLogged=this.users.some((value:Iregister,index:number,array:Iregister[])=>array[index].email==user.email && array[index].password==user.password);
+    console.log(this.IsLogged);
+    
     if(this.IsLogged){
       this.toast.success('Successfully Logged In','')
     }
