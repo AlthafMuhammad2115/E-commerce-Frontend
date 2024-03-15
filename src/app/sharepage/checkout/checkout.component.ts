@@ -128,7 +128,7 @@ export class CheckoutComponent {
   }else{
     this.toast.warning("Fill the detials","",{
       timeOut:1000,
-      
+      positionClass:'toast-top-right'
 
     })
   }

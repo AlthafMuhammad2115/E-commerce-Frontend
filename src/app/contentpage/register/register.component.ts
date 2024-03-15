@@ -9,6 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  signupMessage: String='';
   constructor(private fb: FormBuilder, private userserv: UserService,private actv:ActivatedRoute,private route:Router) { }
   reg!: FormGroup;
   submit = false;
@@ -39,8 +40,15 @@ export class RegisterComponent {
       this.notsame=true;
       return;
     }
-    this.userserv.signup({ userName: this.f.username.value, email: this.f.email.value, password: this.f.password.value }).subscribe( (res)=> {
-      this.route.navigateByUrl('/login')
+    this.userserv.signup({ username: this.f.username.value
+      , email: this.f.email.value
+      , password: this.f.password.value }).subscribe( (res)=> {
+          if(res.status===200){
+            this.route.navigateByUrl('/login')
+          }else if(res.status===302){
+            this.signupMessage=res.message;
+          }
+            
     })
 
 

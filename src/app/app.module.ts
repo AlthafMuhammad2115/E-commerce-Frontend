@@ -79,7 +79,9 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      preventDuplicates: true
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      maxOpened:1
     }
     ),
     RatingModule,

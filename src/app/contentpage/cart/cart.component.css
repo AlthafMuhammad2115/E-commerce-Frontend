@@ -1,5 +1,6 @@
-table{
-    width: 100%;
+
+.row{
+    margin-left: 0px !important;
 }
 thead tr{
     width: 100%;
@@ -35,30 +36,27 @@ tbody tr td{
 
 .btns button{
     margin-left: 10px;
+    border-radius: 0px;
     
 }
 .total{
     border-top: 1px solid gray;
 }
-.count{
-    display: flex;
-    justify-content: center;
-    border: transparent;
-    border-inline: transparent;
-    width: 30px;
-    
-}
 .product{
     padding: 0px;
+}
+.count{
+    font-size:15px;
 }
 .numsetter {
     display: flex;
     padding: 0px;
 }
 .numsetter button{
-    border: transparent;
-    background-color: transparent;
-    font-size: 23px;
+    border-radius:0px ;
+}
+.rmall{
+    border-radius: 0px;
 }
 @media only screen and (max-width: 600px) {
         .product img{

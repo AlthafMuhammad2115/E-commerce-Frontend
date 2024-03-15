@@ -35,19 +35,18 @@ export class HomeserviceService {
   public person=[
     {
       img:"../../../assets/men.png",
-      name:"Men"
+      name:"Men",
+      routerLink:"/Men"
     },
     {
       img:"../../../assets/women.png",
-      name:"Women"
+      name:"Women",
+      routerLink:"/Women"
     },
     {
       img:"../../../assets/kids.png",
-      name:"Kids"
-    },
-    {
-      img:"../../../assets/beauty.png",
-      name:"Beauty"
+      name:"Kids",
+      routerLink:"/Kids"
     }
   ]
 }

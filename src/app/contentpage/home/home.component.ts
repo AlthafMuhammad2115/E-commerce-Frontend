@@ -10,12 +10,15 @@ import { HomeserviceService } from 'src/app/service/homeservice.service';
 })
 export class HomeComponent {
   state:any;
+  men: { img: string; name: string; }[];
+  person: { img: string; name: string; routerLink:string }[];
   constructor( private service:ProductService,private http:HttpClient,private home :HomeserviceService){
     this.state=false;
+    this.men=this.home.Men
+   this.person=this.home.person
   }
 
-  public men=this.home.Men
-  public person=this.home.person
+  
 
   
   ngOnInit(): void {

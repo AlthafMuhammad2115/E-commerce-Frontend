@@ -47,14 +47,31 @@ ishover:boolean=false;
 
   }
   
-  
-
-  AddToCart(item:any){
+  AddToCart(item:any) {
+    console.log(item.name);
+    
+    let cartItem={
+      userId:this.userserv.getUserFromLocalStorage('user').userId,
+      productId:item.id,
+      quantity:1,
+      name:item.name,
+      price:item.price,
+      imgUrl:item.imgUrl
+    }
     if(!this.userserv.IsLogged)
       this.route.navigateByUrl('/login')
-    else
-    this.cartserv.addtocart(item);
+    else{
+      this.cartserv.addtocart(cartItem)
+    }
+
   }
+
+  // AddToCart(item:any){
+  //   if(!this.userserv.IsLogged)
+  //     this.route.navigateByUrl('/login')
+  //   else
+  //   this.cartserv.addtocart(item);
+  // }
   
   isHover() {
     this.ishover = true;

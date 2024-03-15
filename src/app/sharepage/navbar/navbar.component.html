@@ -17,8 +17,8 @@
       </button>
     </div>
 
-    <div class=" d-md-flex d-none list col-2 col-md-5">
-      <ul class="d-md-flex" *ngIf="IsLogged">
+    <div class=" d-md-flex align-items-md-center d-none list col-2 col-md-5">
+      <ul class="d-md-flex align-items-md-center " *ngIf="IsLogged">
         <li routerLink="/wishlist">
           <i
             class="bi"
@@ -37,7 +37,13 @@
             matBadgeColor="warn"
           ></mat-icon>
         </li>
-        <li ><i class="bi bi-person"></i></li>
+        <li class="username p-0" >
+          <h1 class="mt-2 mb-0 pb-0">{{username}}</h1> 
+        <div class="user_detials">
+          <p>Orders</p>
+          <p (click)="logout()" >Log Out</p>
+        </div>
+        </li>
       </ul>
 
       <ul class="d-md-flex before justify-content-end align-items-center col-12 me-md-5 " routerLink="/login" *ngIf="!IsLogged">
@@ -101,7 +107,7 @@
           ></mat-icon>
         </li >
         <li routerLinkActive="slider_active" (click)="onclick()" >Orders</li>
-        <li routerLinkActive="slider_active" (click)="onclick()" >Log Out</li>
+        <li routerLinkActive="slider_active" (click)="logout()" >Log Out</li>
       </ul>
     </div>
   </div>

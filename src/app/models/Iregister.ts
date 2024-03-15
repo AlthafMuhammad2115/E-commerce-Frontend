@@ -1,5 +1,5 @@
 export interface Iregister{
-    userName:string;
+    username:string;
     email:string;
     password:string;
 }

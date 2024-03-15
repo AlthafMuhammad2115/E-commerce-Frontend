@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
   login: boolean = false;
   
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private userserv:UserService) {
     // Subscribe to router events to detect navigation changes
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -24,20 +25,17 @@ export class AppComponent {
       }
     });
 
-    this.router.events.subscribe(evt => {
-      console.log("hai");
-    
-      if (evt instanceof NavigationEnd) {
-        let x = document.getElementsByClassName('mat-drawer-content');
-        if (x.length > 0) x[0].scrollTo(0, 0);
-      }
-    });
-    
-  }
-  // OnActivate(e:any, outlet:any){
-  //   outlet.scrollTop=0;
-  // }
 
-  
+    this.userserv.getUserFromLocalStorage('user')
+  }
+ 
+  @HostListener('window:load')
+  onLoad() {
+    this.userserv.getUserFromLocalStorage('user')
+    console.log('loaded')
+  }
+  ngOnInit(){
+    // this.userserv.getUserFromLocalStorage('user')
+  }
 
 }

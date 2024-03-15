@@ -12,5 +12,6 @@ export class ImageComponent {
   @Input() width:any;
   @Input() height:any;
   @Input() img:any;
+  @Input() routerLink:any;
 
 }

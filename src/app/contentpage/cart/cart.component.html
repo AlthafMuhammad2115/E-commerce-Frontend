@@ -9,8 +9,8 @@
   </div>
 </div>
 
-<div class="table container mt-5 mt-md-0" *ngIf="len != 0">
-  <table class=" col-12">
+<div class="table container mt-5" *ngIf="len != 0">
+  <table class=" col-12 mt-3">
     <thead class="d-none d-md-flex col-12">
       <tr class="col-12">
         <th ></th>
@@ -37,7 +37,7 @@
           <div class="d-flex d-md-none flex-column ps-3">
             <p>{{ item.size }}</p>
             <p>
-              <strong>{{ item.subtotal | currency : "INR" }}</strong>
+              <strong>{{ item.price*item.quantity | currency : "INR" }}</strong>
             </p>
           </div>
         </td>
@@ -47,12 +47,12 @@
 
         <td class="d-flex numsetter col-md-2 col-12">
             <div class="num col-3 col-md-12 d-flex justify-content-center justify-content-md-start mt-3 mt-md-0 mb-3 mb-md-0">
-          <button (click)="decriment(item)">
-            <i class="bi bi-dash-square-fill"></i>
+          <button class="btn btn-outline-dark">
+            <i class="fa-solid fa-minus"></i>
           </button>
-          <input class="count" [(ngModel)]="item.count" type="text" readonly />
-          <button (click)="incriment(item)">
-            <i class="bi bi-plus-square-fill"></i>
+          <strong><p class="count mt-2 ps-3 pe-3">{{item.quantity}}</p></strong>
+          <button class="btn btn-outline-dark">
+            <i class="fa-solid fa-plus"></i>
           </button>
         </div>
         </td>
@@ -61,7 +61,7 @@
         <td class="col-md-2 col-6 d-flex ">
           <strong class="d-flex align-items-center"
             ><p class="d-flex d-md-none">Sub total:</p>
-            <p>{{ item.subtotal | currency : "INR" }}</p></strong
+            <p>{{ item.price*item.quantity| currency : "INR" }}</p></strong
           >
         </td>
 
@@ -71,17 +71,20 @@
             <button class="btn btn-outline-dark" (click)="removefromcart(item)">
               <i class="bi bi-trash-fill"></i>
             </button>
-            <button class="btn btn-outline-dark">
+            <button class="btn btn-outline-dark" (click)="clicked(item)">
               <i class="bi bi-bag-fill"></i>
             </button>
           </div>
         </td>
       </tr>
 
-      <div>
-        <h3>
-          <strong>Total:{{ subtotal }}</strong>
+      <div class="d-flex justify-content-between">
+        <h3 style="text-transform: uppercase; font-size: 16px; border: 1px solid black; margin:0px !important;cursor: pointer;" class="pt-1 ps-1 pe-1">
+          Total: {{ userCart.subTotal | currency:'INR' }}
         </h3>
+        <div>
+        <button class="rmall btn btn-outline-dark " (click)="removeallfromcart()">Remove All</button>
+      </div>
       </div>
     </tbody>
   </table>

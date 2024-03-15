@@ -10,6 +10,9 @@
         <div class="login col-lg-6">
           <h1>Log In</h1>
           <p>Discover the world of style;</p>
+          <div class="error text-danger">
+            {{loginMessage}}
+          </div>
           <div class="input">
             <form [formGroup]="reg" (ngSubmit)="onsubmit()">
               <input

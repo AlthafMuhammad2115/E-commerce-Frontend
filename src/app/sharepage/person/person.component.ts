@@ -6,6 +6,8 @@ import { CartService } from 'src/app/service/cart.service';
 import { FoodService } from 'src/app/service/food.service';
 import { WishlistService } from 'src/app/service/wishlist.service';
 import { UserService } from 'src/app/service/user.service';
+import { cart } from 'src/app/models/cart';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
@@ -24,7 +26,8 @@ export class PersonComponent {
     private cartserv:CartService,
     private route:Router,private foodserv:FoodService,
     private wish:WishlistService,
-    private userserv:UserService
+    private userserv:UserService,
+    private toast:ToastrService
     ) { };
   @Input() products: any[] = [];
   @Input() item:number=0;
@@ -49,11 +52,22 @@ export class PersonComponent {
   // hover over cards ends
 
   // add to cart
-  addtocart(item :any) {
+  addtocart(item:any) {
+    console.log(item.name);
+    
+    let cartItem={
+      userId:this.userserv.getUserFromLocalStorage('user').userId,
+      productId:item.id,
+      quantity:1,
+      name:item.name,
+      price:item.price,
+      imgUrl:item.imgUrl
+    }
     if(!this.userserv.IsLogged)
       this.route.navigateByUrl('/login')
-    else
-      this.cartserv.addtocart(item);
+    else{
+      this.cartserv.addtocart(cartItem)
+    }
 
   }
 

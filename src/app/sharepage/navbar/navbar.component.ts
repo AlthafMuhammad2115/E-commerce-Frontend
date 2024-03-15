@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input ,Inject } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import { count } from 'rxjs';
 import { FoodService } from 'src/app/service/food.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { DOCUMENT } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -11,11 +13,13 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  username: any;
   constructor(private cartserv: CartService,
     private foodserv: FoodService,
     private route: Router,
     private act: ActivatedRoute,
-    private userserv:UserService
+    private userserv:UserService,
+    @Inject(DOCUMENT) private document: Document
   ) {
     act.params.subscribe(params => {
       if (params.searchTerm) {
@@ -23,7 +27,21 @@ export class NavbarComponent {
       }
     })
 
+  
+
+  this.IsLogged=this.userserv.IsLogged;
+
+    if(this.userserv.getUserFromLocalStorage('user')){
+      this.username=this.userserv.getUserFromLocalStorage('user').username.charAt(0);
+      this.cartserv.getproduct().subscribe((res) => {
+
+        this.count = res.products.length;
+      })
+    }
+
+    
   }
+  IsLogged!:boolean;
 
   show = false;
   onclick() {
@@ -34,11 +52,15 @@ export class NavbarComponent {
     document.getElementById('body')?.classList.toggle('open');
 
   }
+
+  logout(){
+    this.userserv.removeUserFromLocalStorage('user');
+    this.document.defaultView!.location.reload();
+
+  }
   count = 0;
   ngOnInit(): void {
-    this.cartserv.getproduct().subscribe((res) => {
-      this.count = res.length;
-    })
+    
 
 
   }
@@ -60,7 +82,8 @@ export class NavbarComponent {
   }
 
   public vis: any;
-  IsLogged=this.userserv.IsLogged;
+
+
 }
 
 
