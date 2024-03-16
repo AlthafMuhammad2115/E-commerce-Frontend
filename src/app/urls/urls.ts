@@ -1,4 +1,4 @@
-const BASE_URL="http://localhost:3000"
+const BASE_URL="https://clothing-store-backend.onrender.com"
 
 export const PRODUCT_URL=BASE_URL+"/api/GetAllProducts"
 export const LOGIN_URL=BASE_URL+"/api/login"
