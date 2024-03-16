@@ -1,4 +1,4 @@
-const BASE_URL="https://godope-clothing.onrender.com"
+const BASE_URL="https://clothing-store-backend.onrender.com"
 
 export const PRODUCT_URL=BASE_URL+"/api/GetAllProducts"
 export const LOGIN_URL=BASE_URL+"/api/login"
