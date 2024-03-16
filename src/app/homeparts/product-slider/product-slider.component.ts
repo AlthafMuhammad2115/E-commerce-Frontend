@@ -15,7 +15,6 @@ export class ProductSliderComponent {
   @Input() section:any;
   @Input() routename!:string;
   @Input() state:boolean=true;
-  @Input() auto:boolean=true;
 
 
   customOptions: OwlOptions = {
@@ -25,11 +24,9 @@ export class ProductSliderComponent {
     center:true,
     touchDrag: true,
     pullDrag: true,
-    dots: false,
+    dots: true,
+    nav : false,
     navSpeed: 700,
-    autoplay:this.auto,
-    autoplayTimeout:700,
-    autoplayHoverPause:true,
     smartSpeed:450,
     navText: ['', ''],
     responsive: {
@@ -45,8 +42,7 @@ export class ProductSliderComponent {
       940: {
         items: 4
       }
-    },
-    nav: true
+    }
   }
 }
 
