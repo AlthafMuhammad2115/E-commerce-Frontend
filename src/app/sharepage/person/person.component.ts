@@ -53,19 +53,19 @@ export class PersonComponent {
 
   // add to cart
   addtocart(item:any) {
-    console.log(item.name);
-    
-    let cartItem={
-      userId:this.userserv.getUserFromLocalStorage('user').userId,
-      productId:item.id,
-      quantity:1,
-      name:item.name,
-      price:item.price,
-      imgUrl:item.imgUrl
-    }
     if(!this.userserv.IsLogged)
       this.route.navigateByUrl('/login')
     else{
+
+      let cartItem={
+        userId:this.userserv.getUserFromLocalStorage('user').userId,
+        productId:item.id,
+        quantity:1,
+        name:item.name,
+        price:item.price,
+        imgUrl:item.imgUrl
+      }
+
       this.cartserv.addtocart(cartItem)
     }
 
