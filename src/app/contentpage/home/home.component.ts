@@ -12,27 +12,10 @@ export class HomeComponent {
   state:any;
   men: { img: string; name: string; }[];
   person: { img: string; name: string; routerLink:string }[];
-  constructor( private service:ProductService,private http:HttpClient,private home :HomeserviceService){
+  constructor(private home :HomeserviceService){
     this.state=false;
     this.men=this.home.Men
    this.person=this.home.person
   }
-
-  
-
-  
-  ngOnInit(): void {
-
-   this.service.GetAll().subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (error) => {
-          console.error('Error fetching data:', error);
-        }
-      );
-  }
-  
-  
   
 }
