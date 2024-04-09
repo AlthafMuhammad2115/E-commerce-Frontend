@@ -6,7 +6,7 @@ export const PRODUCT_URL=BASE_URL+"/api/products"
 export const USER_URL=BASE_URL+"/api/user"
 export const ADMIN_URL=BASE_URL+"/api/admin"
 export const CART_URL=BASE_URL+"/api/cart"
-export const WISHLIST_URL=BASE_URL+"/api/wishlist"
+export const WISHLIST_URL=BASE_URL+"/api/wishlist";
 export const ADDRESS_URL=BASE_URL+"/api/address"
 
 //user
