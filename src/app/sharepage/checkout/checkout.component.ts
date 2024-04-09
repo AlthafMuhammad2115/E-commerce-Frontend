@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/product.service';
 import { UserService } from '../../service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CheckoutService } from 'src/app/service/checkout.service';
 
 declare var Razorpay:any;
 
@@ -41,11 +42,14 @@ export class CheckoutComponent {
   postarray:any=[];
   menudata:any=[]
   getid:any;
+  address: any=[];
+  len: any;
   constructor(private fb:FormBuilder
     ,private act:ActivatedRoute
     ,private serv:ProductService
     ,private userserv:UserService
-    ,private toast:ToastrService){
+    ,private toast:ToastrService
+    ,private checkoutserv:CheckoutService){
     serv.GetAll().subscribe(res=>{
       this.postarray=res;
 
@@ -55,33 +59,74 @@ export class CheckoutComponent {
         this.menudata = this.postarray.filter((value:any) => {
         return value.id == this.getid;
       })
-      console.log("menudata",this.menudata);
-      
       }
 
     })
 
     
+    this.checkoutserv.getAddresss().subscribe(
+      (res)=>{
+        this.address=res.address;
+        console.log(this.address);
+        this.len=this.address.length;
+      }
+    )
   }
+
+
+
+ngOnInit(){
+  
+}
+
 
  reg=this.fb.group({
   firstname:['',[Validators.required]],
   lastname:['',[Validators.required]],
-  phone:['',[Validators.required,Validators.minLength(10)]],
+  number:['',[Validators.required,Validators.minLength(10)]],
   email:['',[Validators.required,Validators.email]],
-  address:['',[Validators.required]],
+  housename:['',[Validators.required]],
+  area:['',[Validators.required]],
+  place:['',[Validators.required]],
+  district:['',[Validators.required]],
+  state:['',[Validators.required]],
   pincode:['',[Validators.required]],
 })
+
+
   
   get f(){
     return this.reg.controls;
   }
 
+
+
   onsubmit(){
-    console.log(this.f);
     this.submit=true;
-    if(this.reg.valid )
-    this.toast.success("Detials Added Successfully")
+    console.log(this.reg.value);
+    if(this.reg.valid ){
+      this.checkoutserv.setAddress(this.reg.value).subscribe(
+        (res)=>{
+          this.address=res.address;
+          this.toast.success("Detials Added Successfully")
+        }
+      )
+
+    }
+  }
+
+
+
+  deleteAddress(id:any){
+
+    this.checkoutserv.deleteAddress({addressId:id}).subscribe(
+      (res)=>{
+        this.address=res.address;
+        console.log(this.address)
+        this.len=this.address.length;
+        console.log(this.len);
+      }
+    )
   }
 
   
@@ -132,7 +177,8 @@ export class CheckoutComponent {
 
     })
   }
-
   // if end
   }
+
+
 }
