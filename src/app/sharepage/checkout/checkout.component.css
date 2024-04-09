@@ -75,3 +75,20 @@ input::-webkit-inner-spin-button {
     position: absolute;
     bottom: 0px;
 }
+.address_container p{
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    line-height: 3px;
+}
+.address_container{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.address_container i{
+    cursor: pointer;
+}
+.checkout{
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}

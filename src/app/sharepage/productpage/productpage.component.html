@@ -49,12 +49,9 @@
     <div class="product_deals col-12 d-flex flex-column mt-md-3">
       <div class="size col-md-6 col-8">
         <div class="d-flex size_button">
-          <mat-button-toggle-group aria-label="Font Style" [(ngModel)]="state" >
-            <mat-button-toggle  state=1>XS</mat-button-toggle>
-            <mat-button-toggle state=1>S</mat-button-toggle>
-            <mat-button-toggle state=1>M</mat-button-toggle>
-            <mat-button-toggle state=1>L</mat-button-toggle>
-            <mat-button-toggle state=1>XL</mat-button-toggle>
+          <mat-button-toggle-group aria-label="Font Style" [(ngModel)]="state">
+            <mat-button-toggle *ngFor="let size of menudata[0].size"  state="size">{{size}}</mat-button-toggle>
+            
           </mat-button-toggle-group>
         </div>
         <div class="warn text-danger" *ngIf="submit && state==0">
