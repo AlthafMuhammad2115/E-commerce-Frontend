@@ -14,7 +14,7 @@ export const LOGIN_URL=USER_URL+"/login"
 export const SIGNUP_URL=USER_URL+"/SignUp"
 
 //admin
-export const ADMINLOGIN_URL=ADMIN_URL+"/login"
+export const ADMINLOGIN_URL=ADMIN_URL+"/login";
 export const ADMINSIGNUP_URL=ADMIN_URL+"/signup"
 
 //cart
