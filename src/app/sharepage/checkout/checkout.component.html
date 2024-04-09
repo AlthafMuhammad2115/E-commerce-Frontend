@@ -4,11 +4,11 @@
   <img src="../../../assets/Godope..png" alt="" [width]="200" />
   <p class="pt-3">Checkout</p>
 </div>
-<div class="container main pt-5 row" *ngFor="let item of menudata">
+<div class="container main py-5 row" *ngFor="let item of menudata">
   <div class="col-12 user_detials col-md-6 pt-3">
     <div class="col-md-10 user_detials_wrapper">
 
-      <div *ngIf="len>0">
+      <!-- <div *ngIf="len>0">
       <div class="address_container col-12 p-3" *ngFor="let item of address">
         <p>{{item.firstname}} {{item.lastname}}</p>
         <p>+91 {{item.number}}</p>
@@ -16,10 +16,10 @@
         <p>{{item.housename}},{{item.area}},{{item.place}},{{item.district}},{{item.state}} {{item.pincode}}</p>
         <div class="options d-flex col-1 ms-auto justify-content-between">
           <i class="bi bi-pencil-square"></i>
-          <i class="bi bi-trash-fill" (click)="deleteAddress(item._id)"></i>
+          <i class="bi bi-trash-fill"></i>
         </div>
       </div>
-    </div>
+    </div> -->
 
       <form
         [formGroup]="reg"

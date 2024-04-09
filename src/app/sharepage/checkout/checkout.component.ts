@@ -62,22 +62,7 @@ export class CheckoutComponent {
       }
 
     })
-
-    
-    this.checkoutserv.getAddresss().subscribe(
-      (res)=>{
-        this.address=res.address;
-        console.log(this.address);
-        this.len=this.address.length;
-      }
-    )
   }
-
-
-
-ngOnInit(){
-  
-}
 
 
  reg=this.fb.group({
@@ -104,30 +89,10 @@ ngOnInit(){
   onsubmit(){
     this.submit=true;
     console.log(this.reg.value);
-    if(this.reg.valid ){
-      this.checkoutserv.setAddress(this.reg.value).subscribe(
-        (res)=>{
-          this.address=res.address;
-          this.toast.success("Detials Added Successfully")
-        }
-      )
-
-    }
+    
   }
 
 
-
-  deleteAddress(id:any){
-
-    this.checkoutserv.deleteAddress({addressId:id}).subscribe(
-      (res)=>{
-        this.address=res.address;
-        console.log(this.address)
-        this.len=this.address.length;
-        console.log(this.len);
-      }
-    )
-  }
 
   
  

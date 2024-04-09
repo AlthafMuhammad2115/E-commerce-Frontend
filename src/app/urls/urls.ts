@@ -1,5 +1,5 @@
 //backend link
-const BASE_URL="http://localhost:3000"
+const BASE_URL="https://clothing-store-backend.onrender.com"
 
 //routes
 export const PRODUCT_URL=BASE_URL+"/api/products"
