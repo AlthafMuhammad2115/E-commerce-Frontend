@@ -13,6 +13,8 @@ export class HomeComponent {
   constructor(private home :HomeserviceService){
     this.state=false;
   }
+  
+  
   public men=[
     {
       img:"../../../assets/jeans.png",
@@ -56,5 +58,6 @@ export class HomeComponent {
       routerLink:"/Kids"
     }
   ]
+  
   
 }

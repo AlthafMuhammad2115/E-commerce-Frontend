@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PRODUCT_URL } from './urls/urls';
+import { GETPRODUCT_URL } from './urls/urls';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class ProductService {
   // get all by get method
 
   GetAll(){
-    return this.http.get<any>(PRODUCT_URL,{withCredentials:true})
+    return this.http.get<any>(GETPRODUCT_URL)
   }
 
 //   public products = [

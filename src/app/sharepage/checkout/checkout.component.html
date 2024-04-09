@@ -7,6 +7,20 @@
 <div class="container main pt-5 row" *ngFor="let item of menudata">
   <div class="col-12 user_detials col-md-6 pt-3">
     <div class="col-md-10 user_detials_wrapper">
+
+      <div *ngIf="len>0">
+      <div class="address_container col-12 p-3" *ngFor="let item of address">
+        <p>{{item.firstname}} {{item.lastname}}</p>
+        <p>+91 {{item.number}}</p>
+        <p>{{item.email}}</p>
+        <p>{{item.housename}},{{item.area}},{{item.place}},{{item.district}},{{item.state}} {{item.pincode}}</p>
+        <div class="options d-flex col-1 ms-auto justify-content-between">
+          <i class="bi bi-pencil-square"></i>
+          <i class="bi bi-trash-fill" (click)="deleteAddress(item._id)"></i>
+        </div>
+      </div>
+    </div>
+
       <form
         [formGroup]="reg"
         class="d-flex flex-column jusify-content-between col-12"
@@ -52,13 +66,13 @@
           type="number"
           class="form-control col-12"
           placeholder="*PHONE NUMBER"
-          formControlName="phone"
+          formControlName="number"
         /> 
-        <div *ngIf="submit && f.phone.errors" @close @open>
-          <div *ngIf="f.phone.errors['required']" class="warn text-danger error" @close @open>
+        <div *ngIf="submit && f.number.errors" @close @open>
+          <div *ngIf="f.number.errors['required']" class="warn text-danger error" @close @open>
             Field Required
           </div>
-          <div *ngIf="f.phone.errors['minength']" class="warn text-danger error" @close @open>
+          <div *ngIf="f.number.errors['minength']" class="warn text-danger error" @close @open>
             10 digit required
           </div>
         </div>
@@ -79,19 +93,75 @@
           </div>
         </div>
       </div>
-      <div class="input">
+
+      <div class="input housename">
         <input
           type="text"
           class="form-control col-12"
-          placeholder="*ADDRESS"
-          formControlName="address"
+          placeholder="*HOUSE NAME/NO"
+          formControlName="housename"
         />
-        <div *ngIf="submit && f.address.errors" @close @open>
-          <div *ngIf="f.address.errors['required']" class="warn text-danger error">
+        <div *ngIf="submit && f.housename.errors" @close @open>
+          <div *ngIf="f.housename.errors['required']" class="warn text-danger error">
             Field Required
           </div>
         </div>
       </div>
+      
+      <div class="input area">
+        <input
+          type="text"
+          class="form-control col-12"
+          placeholder="*AREA/STREET"
+          formControlName="area"
+        />
+        <div *ngIf="submit && f.area.errors" @close @open>
+          <div *ngIf="f.area.errors['required']" class="warn text-danger error">
+            Field Required
+          </div>
+        </div>
+      </div>
+
+      <div class="input place">
+        <input
+          type="text"
+          class="form-control col-12"
+          placeholder="*PLACE/VILLAGE"
+          formControlName="place"
+        />
+        <div *ngIf="submit && f.place.errors" @close @open>
+          <div *ngIf="f.place.errors['required']" class="warn text-danger error">
+            Field Required
+          </div>
+        </div>
+      </div>
+      <div class="input district">
+        <input
+          type="text"
+          class="form-control col-12"
+          placeholder="*DISTRICT"
+          formControlName="district"
+        />
+        <div *ngIf="submit && f.district.errors" @close @open>
+          <div *ngIf="f.district.errors['required']" class="warn text-danger error">
+            Field Required
+          </div>
+        </div>
+      </div>
+      <div class="input state">
+        <input
+          type="text"
+          class="form-control col-12"
+          placeholder="*STATE"
+          formControlName="state"
+        />
+        <div *ngIf="submit && f.state.errors" @close @open>
+          <div *ngIf="f.state.errors['required']" class="warn text-danger error">
+            Field Required
+          </div>
+        </div>
+      </div>
+
       <div class="input">
         <input
           type="number"

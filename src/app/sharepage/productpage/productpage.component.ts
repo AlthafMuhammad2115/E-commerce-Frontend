@@ -17,7 +17,7 @@ export class ProductpageComponent {
   menudata: any;
   postarray: any[] = [];
   value!: number;
-  state:number=0;
+  state:any=0;
   count:number=3
   off:number=30
   panelOpenState = false;
@@ -97,6 +97,9 @@ ishover:boolean=false;
     this.route.navigateByUrl('/'+item.id+'/checkout');
   else if(!this.userserv.IsLogged)
     this.route.navigateByUrl('login')
+
+    console.log(this.state);
+    
  }
   
   
