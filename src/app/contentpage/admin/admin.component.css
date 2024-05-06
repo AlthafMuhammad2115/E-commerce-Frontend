@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.login h1{
+    font-size: 30px;
+    font-weight: bolder;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    
+}
+.submain{
+    margin: 0px;
+    padding: 0px;
+}
+
+.img img{
+    width: 100%;
+    height: 490px;
+}
+.img{
+    border-right: 1px solid black;
+    border-color: rgba(0, 0, 0, 0.5);
+    padding: 0px;
+}
+
+.login .input button,input{
+    margin-top: 10px;
+}
+.input input:focus::placeholder{
+    color: transparent;
+}
+.login-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.input input::placeholder{
+    font-size: 12px;
+}
+.input button{
+    font-size: 13px;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.signin button{
+    font-size: 13px;
+    margin-bottom: 10px;
+
+}
+.signin p{
+    text-align: center;
+    -webkit-text-decoration-line: overline; /* Safari */
+   text-decoration-line: overline
+
+}
+.warn{
+    font-size: 12px;
+}
+.signin a{
+    color: blue;
+}
+.signin a:hover{
+    text-decoration: underline;
+    transition: text-decoration .9s ease-in-out;
+    cursor: pointer;
+
+}
+.input input{
+    border-radius: 0px;
+    border-color: black;
+}
+.input input::placeholder{
+    color: black;
+}
+.input button{
+    border-radius:0px ;
+    width: 50%;
+    margin: 0px 25%;
+}
+
+.demo{
+    border: 1px solid black;
+}
+
+.nav_bar .menu ul{
+    list-style-type: none;
+    font-size: 32px;
+}
+.nav_bar .searchbar input{
+    border-radius: 0px;
+    border: 1px solid black;
+}
+.nav_bar .searchbar input:focus::placeholder{
+    color: transparent;
+    transition: all .2s;
+}
+.nav_bar .menu li{
+    cursor: pointer;
+}

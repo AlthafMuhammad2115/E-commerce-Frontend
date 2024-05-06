@@ -1,0 +1,72 @@
+
+        <div class="login col-12 d-flex flex-column align-items-center justify-content-center mt-5 pt-5" *ngIf="!isAdminLogged">
+          <h1>Admin Log In</h1>
+          <div class="error text-danger">
+            {{loginMessage}}
+          </div>
+          <div class="input col-3 ps-5">
+            <form [formGroup]="reg" (ngSubmit)="onsubmit()">
+              <input
+                type="Email"
+                class="form-control"
+                placeholder="Email"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': submit && f.email.errors }"
+              />
+              <div *ngIf="submit && f.email.errors">
+                <div
+                  *ngIf="f.email.errors['required']"
+                  class="warn text-danger"
+                >
+                  Field required
+                </div>
+                <div *ngIf="f.email.errors['email']" class="warn text-danger">
+                  invalid format(eg: john@gmail.com)
+                </div>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="password"
+                formControlName="password"
+                [ngClass]="{ 'is-invalid': submit && f.password.errors }"
+
+              />
+              <div *ngIf="submit && f.password.errors">
+                <div
+                  *ngIf="f.password.errors['pattern']"
+                  class="warn text-danger"
+                >
+                  minimum 8 digits required
+                </div>
+                <div
+                  *ngIf="f.password.errors['required']"
+                  class="warn text-danger"
+                >
+                  Field required
+                </div>
+              </div>
+              <button class="form-control btn btn-dark">Sign In</button>
+            </form>
+          </div>
+        </div>
+
+        
+        <div class="active" *ngIf="isAdminLogged">
+          <div class="nav_bar col-12 d-flex py-3 ">
+            <div class="logo col-md-3">
+              <img src="../../../assets/Godope..png" alt="" [width]="250">
+            </div>
+            <div class="searchbar col-md-6 py-3">
+              <input type="text" class="form-control" placeholder="Search products">
+            </div>
+            <div class="menu col-md-3 py-3">
+              <ul class="d-flex justify-content-evenly align-items-center py-3">
+                <li><a><i class="bi bi-plus-lg"></i></a></li>
+                <li><a (click)="removeadmin()"><i class="bi bi-box-arrow-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <router-outlet></router-outlet>

@@ -62,6 +62,14 @@ export class CheckoutComponent {
       }
 
     })
+
+    this.checkoutserv.getAddresss().subscribe(
+      (res)=>{
+        this.address=res.address;
+        this.len=this.address.length;
+        
+      }
+    );
   }
 
 
@@ -89,11 +97,37 @@ export class CheckoutComponent {
   onsubmit(){
     this.submit=true;
     console.log(this.reg.value);
-    
+    if(this.reg.valid){
+      this.checkoutserv.setAddress(this.reg.value).subscribe(
+        ()=>{
+          this.toast.success("Address added successfully");
+          this.len=this.address.length;
+        }
+      );
+      this.checkoutserv.getAddresss().subscribe(
+        (res)=>{
+          this.address=res.address
+          
+        }
+      );
+    }
   }
 
 
-
+  deleteAddress(id:any){
+      let Aid={
+        addressId:id
+      }
+      console.log(Aid);
+      
+    this.checkoutserv.deleteAddress(Aid).subscribe(
+      (res)=>{
+        console.log(res);
+        this.address=res;
+        this.toast.success("address deleted successfully");
+      }
+    );
+  }
   
  
   rzp1:any;

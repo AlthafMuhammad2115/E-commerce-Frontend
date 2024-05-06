@@ -8,7 +8,7 @@
   <div class="col-12 user_detials col-md-6 pt-3">
     <div class="col-md-10 user_detials_wrapper">
 
-      <!-- <div *ngIf="len>0">
+      <div *ngIf="len>1">
       <div class="address_container col-12 p-3" *ngFor="let item of address">
         <p>{{item.firstname}} {{item.lastname}}</p>
         <p>+91 {{item.number}}</p>
@@ -16,10 +16,10 @@
         <p>{{item.housename}},{{item.area}},{{item.place}},{{item.district}},{{item.state}} {{item.pincode}}</p>
         <div class="options d-flex col-1 ms-auto justify-content-between">
           <i class="bi bi-pencil-square"></i>
-          <i class="bi bi-trash-fill"></i>
+          <i class="bi bi-trash-fill" (click)="deleteAddress(item.id)"></i>
         </div>
       </div>
-    </div> -->
+    </div>
 
       <form
         [formGroup]="reg"
@@ -182,9 +182,13 @@
   </div>
 
   <div
-    class="col-12 col-md-6 checkout d-flex flex-column jusify-content-between pt-5"
+    class="col-12 col-md-6 checkout d-flex flex-column jusify-content-between align-items-center pt-5"
   >
-    <div class="checkout_wrapper col-6">
+
+    <div class="product_card ">
+      <app-product-card [name]="item.name" [imgUrl]="item.imgUrl" [price]="item.price"></app-product-card>
+    </div>
+    <div class="checkout_wrapper col-6 p-3 mt-5">
     <div class="product_price d-flex flex-column align-items-center">
       <div class="p">
         <span class="pname" >order price</span>

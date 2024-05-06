@@ -12,6 +12,7 @@ export class AppComponent {
   isCheckoutPage: boolean = false;
   signup: boolean = false;
   login: boolean = false;
+  admin: boolean=false;
   
 
   constructor(private router: Router,private userserv:UserService) {
@@ -22,6 +23,7 @@ export class AppComponent {
         this.isCheckoutPage = event.url.includes('/checkout');
         this.signup = event.url.includes('/SignUp');
         this.login = event.url.includes('/login');
+        this.admin = event.url.includes('/admin');
       }
     });
 

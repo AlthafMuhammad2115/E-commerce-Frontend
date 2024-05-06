@@ -33,7 +33,7 @@
           <i class="bi bi-cart"></i>
           <mat-icon
             *ngIf="count != 0"
-            matBadge="{{ count }}"
+            matBadge="{{count}}"
             matBadgeColor="warn"
           ></mat-icon>
         </li>
@@ -72,7 +72,7 @@
     </div>
   </div>
 
-  <div class="slider_list d-flex justify-content-center col-12"> 
+  <div class="slider_list d-flex justify-content-center col-12">
     <div class="col-md-4 col-8 inner_list">
       <ul class="">
         <li routerLink="/Men" routerLinkActive="active">Men</li>
@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <div class="smlist slide col-6 d-sm-block d-md-none">
+  <div class="smlist slide col-6 d-sm-block d-md-none"  *ngIf="IsLogged">
     <div class="img d-flex justify-content-center pt-5">
       <img src="../../../assets/Godope..png" alt="" [style.width]="'80%'" />
     </div>

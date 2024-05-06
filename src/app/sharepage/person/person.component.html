@@ -7,10 +7,10 @@
         </div>
         <div class="price_range ps-3 d-flex flex-column">
           <mat-chip-listbox class="d-flex flex-column">
-            <mat-chip-option color="warn" (selectionChange)="filter(600, 700,1)" >600-700</mat-chip-option>
-            <mat-chip-option color="warn" (selectionChange)="filter(700, 750,2)">700-750</mat-chip-option>
-            <mat-chip-option color="warn"  (selectionChange)="filter(750, 800,3)">750-800</mat-chip-option>
-            <mat-chip-option color="warn"  (selectionChange)="filter(800, 2000,4)">800-2000</mat-chip-option>
+            <mat-chip-option color="warn" (selectionChange)="filter(0,399,1)" >0-399</mat-chip-option>
+            <mat-chip-option color="warn" (selectionChange)="filter(400, 599,2)">400-599</mat-chip-option>
+            <mat-chip-option color="warn"  (selectionChange)="filter(600, 799,3)">600-799</mat-chip-option>
+            <mat-chip-option color="warn"  (selectionChange)="filter(800, 1999,4)">800-1999</mat-chip-option>
           </mat-chip-listbox>
     
         </div>
@@ -56,7 +56,7 @@
     <div
       class="cat_card mt-3 col-lg-4 col-md-3 col-sm-6"
       *ngFor="let item of products; index as i"
-    >
+    > 
       <div class="card">
         <div (mouseenter)="enter(i)" (mouseleave)="leave(i)" class="img">
           <div class="hover-heart" *ngIf="hover[i]">

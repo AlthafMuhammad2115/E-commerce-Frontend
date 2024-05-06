@@ -1,0 +1,32 @@
+<div class="card">
+    <!-- <div (mouseenter)="enter(i)" (mouseleave)="leave(i)" class="img"> -->
+      <!-- <div class="hover-heart" *ngIf="hover[i]">
+        <button (click)="AddToWishList(item, i)">
+          <i class="bi" [class.bi-heart]="!cart[i]"  [class.bi-heart-fill]="cart[i]" [class.bi-col]="cart[i]"></i>
+        </button>
+      </div> -->
+
+      <!-- <div class="hover" *ngIf="hover[i]">
+        <button (click)="addtocart(item)">Add to cart</button>
+      </div> -->
+    <div class="img">
+      <img
+        src="{{imgUrl }}"
+      />
+    </div>
+
+    <div class="detials mt-3">
+      <p>{{name }}</p>
+      <p >{{ name }}</p>
+      <p>{{ price | currency : "INR" }}</p>
+    </div>
+    <div class="d-flex justify-content-center star">
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <p>({{ count }} reviews)</p>
+    </div>
+    <div class="d-flex justify-content-center"></div>
+  </div>

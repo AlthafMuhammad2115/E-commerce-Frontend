@@ -12,6 +12,8 @@ import { LoginComponent } from './contentpage/login/login.component';
 import { RegisterComponent } from './contentpage/register/register.component';
 import { CheckoutComponent } from './sharepage/checkout/checkout.component';
 import { NotfoundComponent } from './sharepage/notfound/notfound.component';
+import { AdminComponent } from './contentpage/admin/admin.component';
+import { AdmindashboardComponent } from './contentpage/admindashboard/admindashboard.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'Home',pathMatch:'full'},
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'SignUp',component:RegisterComponent},
   {path:':id/checkout',component:CheckoutComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'admin/:userId',component:AdmindashboardComponent},
 
 
   {path:'**',component:NotfoundComponent}

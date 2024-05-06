@@ -1,6 +1,6 @@
 <app-loading></app-loading>
-<app-navbar *ngIf="!isCheckoutPage && !login && !signup" ></app-navbar>
+<app-navbar *ngIf="!isCheckoutPage && !login && !signup && !admin" ></app-navbar>
 
 <router-outlet ></router-outlet>
 
-<app-footer *ngIf="!isCheckoutPage && !login && !signup"></app-footer>
+<app-footer *ngIf="!isCheckoutPage && !login && !signup && !admin"></app-footer>

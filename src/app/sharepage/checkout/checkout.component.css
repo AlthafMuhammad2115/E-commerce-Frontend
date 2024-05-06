@@ -50,6 +50,7 @@ input::-webkit-inner-spin-button {
 }
 .checkout_wrapper{
     margin: 0px auto;
+    border: 1px solid black;
 }
 .checkout .p{
     display: flex;

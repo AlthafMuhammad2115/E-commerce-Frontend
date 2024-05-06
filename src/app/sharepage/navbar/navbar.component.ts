@@ -55,15 +55,9 @@ export class NavbarComponent {
 
   logout(){
     this.userserv.removeUserFromLocalStorage('user');
-    this.document.defaultView!.location.reload();
-
+    this.IsLogged=this.userserv.getUserFromLocalStorage("user");
   }
   count = 0;
-  ngOnInit(): void {
-    
-
-
-  }
 
   public searchTerm: string = ''
 

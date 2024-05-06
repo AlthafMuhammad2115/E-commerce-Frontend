@@ -38,6 +38,9 @@ import { ImageComponent } from './homeparts/image/image.component';
 import { ProductSliderComponent } from './homeparts/product-slider/product-slider.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatChipsModule} from '@angular/material/chips';
+import { AdminComponent } from './contentpage/admin/admin.component';
+import { AdmindashboardComponent } from './contentpage/admindashboard/admindashboard.component';
+import { ProductCardComponent } from './sharepage/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import {MatChipsModule} from '@angular/material/chips';
     NotfoundComponent,
     ImageComponent,
     ProductSliderComponent,
+    AdminComponent,
+    AdmindashboardComponent,
+    ProductCardComponent,
     
 
 
