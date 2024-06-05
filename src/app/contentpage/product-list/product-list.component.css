@@ -1,0 +1,9 @@
+app-admindashboard{
+    position: relative;
+}
+app-admin-product-detials-card{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

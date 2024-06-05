@@ -22,32 +22,17 @@ export class UserService {
   }
 
   public usersubject=new BehaviorSubject<any>([])
-  // public users:Iregister[]=[{ 
-  //   username:'Althaa',
-  //   email:'Althaa@gmail.com',
-  //   password:'Althaa123'
-  //   }]
+ 
 
   constructor(private http:HttpClient,private toast:ToastrService) {
   }
   
-  // signup(user:Iregister){
-  //   this.users.push(user);
-  //   this.usersubject.next(user);
-  //   return this.usersubject.asObservable()
-  // }
+
 
 
   public IsLogged:boolean=false;
 
-  // login(user:Iuser){
-  //   this.IsLogged=this.users.some((value:Iregister,index:number,array:Iregister[])=>array[index].email==user.email && array[index].password==user.password);
-  //   console.log(this.IsLogged);
-    
-  //   if(this.IsLogged){
-  //     this.toast.success('Successfully Logged In','')
-  //   }
-  // }
+ 
 
   logout(){
     this.IsLogged=false;
@@ -69,7 +54,6 @@ export class UserService {
     const user=localStorage.getItem(key)
     if(user){
       this.IsLogged=true;
-      console.log('IsLogged:',this.IsLogged);
       return JSON.parse(user)
     }
   }

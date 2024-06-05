@@ -108,3 +108,11 @@
 .nav_bar .menu li{
     cursor: pointer;
 }
+
+.btn{
+    border-radius: 0;
+}
+.is-active{
+    background-color: black;
+    color: white;
+}

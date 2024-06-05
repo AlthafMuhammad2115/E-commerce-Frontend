@@ -17,7 +17,9 @@ export class AdminComponent {
   isAdminLogged: boolean=false;
   loginMessage: any;
 
-  constructor(private fb:FormBuilder,private adminserv:AdminService,private toast:ToastrService,private userserv:UserService,private route:Router){}
+  constructor(private fb:FormBuilder,private adminserv:AdminService,private toast:ToastrService,private userserv:UserService,private route:Router){
+    
+  }
 
   ngOnInit(){
     this.reg=this.fb.group({

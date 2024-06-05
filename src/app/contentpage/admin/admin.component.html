@@ -55,18 +55,22 @@
         <div class="active" *ngIf="isAdminLogged">
           <div class="nav_bar col-12 d-flex py-3 ">
             <div class="logo col-md-3">
-              <img src="../../../assets/Godope..png" alt="" [width]="250">
+              <img src="../../../assets/Godope..png" routerLink="/admin" alt="" [width]="250">
             </div>
-            <div class="searchbar col-md-6 py-3">
+            <div class="searchbar col-md-4 py-3">
               <input type="text" class="form-control" placeholder="Search products">
             </div>
-            <div class="menu col-md-3 py-3">
-              <ul class="d-flex justify-content-evenly align-items-center py-3">
-                <li><a><i class="bi bi-plus-lg"></i></a></li>
-                <li><a (click)="removeadmin()"><i class="bi bi-box-arrow-right"></i></a></li>
+            <div class="menu col-md-5 py-3">
+              <ul class="d-flex justify-content-center align-items-center py-3">
+                <li class="btn btn-outline-dark me-3" routerLink="addProducts" routerLinkActive="is-active"><a>ADD PRODUCTS</a></li>
+                <li class="btn btn-outline-dark me-3"><a>ORDERS</a></li>
+                <li class="btn btn-outline-dark"><a (click)="removeadmin()">LOG OUT</a></li>
               </ul>
             </div>
           </div>
-        </div>
+          
+          <router-outlet></router-outlet>
+          
 
-        <router-outlet></router-outlet>
+        </div>
+        

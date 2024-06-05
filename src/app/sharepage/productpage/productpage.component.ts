@@ -39,7 +39,6 @@ ishover:boolean=false;
           return value.id == this.getproductid;
         })
       }
-      console.log(this.menudata);
       
     })
 

@@ -11,8 +11,8 @@ li,p,h1{
 /* :root{
     --margin-top: 500px;
 } */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; margin: 0; }
+body,h1,h2,h3,h4,h5,h6 { font-family: Roboto, "Helvetica Neue", sans-serif !important; }
 .btn-outline-dark:focus,.form-control:active, .form-control:focus,.form-control:active{
     box-shadow: none;
     outline: none;

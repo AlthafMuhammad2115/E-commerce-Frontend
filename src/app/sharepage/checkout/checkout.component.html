@@ -98,70 +98,16 @@
         <input
           type="text"
           class="form-control col-12"
-          placeholder="*HOUSE NAME/NO"
-          formControlName="housename"
+          placeholder="*ADRESS"
+          formControlName="address"
         />
-        <div *ngIf="submit && f.housename.errors" @close @open>
-          <div *ngIf="f.housename.errors['required']" class="warn text-danger error">
+        <div *ngIf="submit && f.address.errors" @close @open>
+          <div *ngIf="f.address.errors['required']" class="warn text-danger error">
             Field Required
           </div>
         </div>
       </div>
       
-      <div class="input area">
-        <input
-          type="text"
-          class="form-control col-12"
-          placeholder="*AREA/STREET"
-          formControlName="area"
-        />
-        <div *ngIf="submit && f.area.errors" @close @open>
-          <div *ngIf="f.area.errors['required']" class="warn text-danger error">
-            Field Required
-          </div>
-        </div>
-      </div>
-
-      <div class="input place">
-        <input
-          type="text"
-          class="form-control col-12"
-          placeholder="*PLACE/VILLAGE"
-          formControlName="place"
-        />
-        <div *ngIf="submit && f.place.errors" @close @open>
-          <div *ngIf="f.place.errors['required']" class="warn text-danger error">
-            Field Required
-          </div>
-        </div>
-      </div>
-      <div class="input district">
-        <input
-          type="text"
-          class="form-control col-12"
-          placeholder="*DISTRICT"
-          formControlName="district"
-        />
-        <div *ngIf="submit && f.district.errors" @close @open>
-          <div *ngIf="f.district.errors['required']" class="warn text-danger error">
-            Field Required
-          </div>
-        </div>
-      </div>
-      <div class="input state">
-        <input
-          type="text"
-          class="form-control col-12"
-          placeholder="*STATE"
-          formControlName="state"
-        />
-        <div *ngIf="submit && f.state.errors" @close @open>
-          <div *ngIf="f.state.errors['required']" class="warn text-danger error">
-            Field Required
-          </div>
-        </div>
-      </div>
-
       <div class="input">
         <input
           type="number"

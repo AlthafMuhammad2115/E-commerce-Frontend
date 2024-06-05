@@ -1,1 +1,35 @@
-<p>admindashboard works!</p>
+<div class="table container">
+    <table class="table">
+        <thead class="text-center">
+            <tr >
+                <th >Product</th>
+                <th>Price</th>
+                <th>Size</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of productarray,index as i" >
+            <tr >
+
+                <td class="d-flex flex-column align-items-center">
+                    <img [src]="item.imgUrl" alt="" [width]="100">
+                    <p>{{item.name}}</p>
+                </td>
+                <td  class="text-center">{{item.price|currency:'INR'}}</td>
+                <td class="text-center" ><div class="d-flex justify-content-evenly"><p *ngFor="let size of item.size">{{size}}</p></div></td>
+                <td class="text-center">{{item.category}}</td>
+                <td class="text-center"><p *ngIf="item.stock!=0">{{item.stock}}</p><p *ngIf="item.stock==0" class="text-danger">Out Of Stock</p></td>
+                <td >
+                    <div class="btns d-flex align-items-center justify-content-evenly col-10">
+                        <button class="btn btn-outline-dark"  routerLink="editProducts" (click)="editableProduct(item)"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn btn-outline-dark" (click)="deleteproduct(item.id)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-outline-dark" (click)="moreinfo(item,i)"><i class="fa-solid fa-circle-info"></i></button>
+                    </div>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

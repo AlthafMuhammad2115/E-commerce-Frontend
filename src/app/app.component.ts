@@ -34,10 +34,5 @@ export class AppComponent {
   @HostListener('window:load')
   onLoad() {
     this.userserv.getUserFromLocalStorage('user')
-    console.log('loaded')
   }
-  ngOnInit(){
-    // this.userserv.getUserFromLocalStorage('user')
-  }
-
 }

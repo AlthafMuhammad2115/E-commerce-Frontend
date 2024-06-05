@@ -1,0 +1,47 @@
+<div class="container ">
+    <app-title class="h4 py-3 bg-dark text-white" name="PRODUCT DETIALS"></app-title>
+    <div class="col-6 mx-auto pb-3">
+        <form action="" class="d-flex flex-column" [formGroup]="productDet">
+            <label for="" class="h6">NAME</label>
+            <input type="text" class="form-control mb-3" placeholder="name" formControlName="name">
+            
+            <label for="" class="h6">IMAGE</label>
+            <input #imageInput
+            type="file"
+            (change)="this.onFilechange($event)" class="form-control mb-3" placeholder="name" name="imgName" >
+            
+            <label for="" class="h6">PRICE</label>
+            <input type="number" class="form-control mb-3" placeholder="price" formControlName="price">
+            
+            <label for="" class="h6">DESCRIPTION</label>
+            <input type="text" class="form-control mb-3" placeholder="description" formControlName="desc">
+            
+            <label for="" class="h6">SHORT DESCRIPTION</label>
+            <input type="text" class="form-control mb-3" placeholder="short description" formControlName="shortDesc">
+            
+            <label for="" class="h6">STOCK</label>
+            <input type="number" class="form-control mb-3" placeholder="stock" formControlName="stock">
+            
+
+            <div class="d-flex justify-content-evenly">
+                <mat-form-field class="col-4">
+                    <mat-label>SIZE</mat-label>
+                    <mat-select formControlName="size" multiple >
+                        <mat-option *ngFor="let size of sizechart" [value]="size">{{size}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+    
+                  <mat-form-field class="col-4">
+                    <mat-label>Category</mat-label>
+                    <mat-select matNativeControl formControlName="category" name="cat">
+                        <mat-option *ngFor="let cat of category" [value]="cat">{{cat}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            
+
+              <button class="btn btn-outline-dark col-3 mx-auto" (click)="onsubmit()" >Submit</button>
+        </form>
+
+    </div>
+</div>

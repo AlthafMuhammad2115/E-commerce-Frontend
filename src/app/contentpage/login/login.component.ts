@@ -41,12 +41,10 @@ export class LoginComponent {
   onsubmit(){
     this.submit=true;
     if(this.reg.invalid)return;
-    console.log("hello")
     let userlog={
       email:this.f.email.value,
       password:this.f.password.value
     }
-    console.log(`userlog`,userlog);
     
     // this.userserv.login(userlog)
     // if(this.userserv.IsLogged){
@@ -54,7 +52,6 @@ export class LoginComponent {
     // }
 
     this.userserv.login(userlog).subscribe(res=>{
-      console.log(`response`,res);
       if(res.status===200){
         this.route.navigateByUrl('/Home');
         this.toast.success(res.username+' logged in')
@@ -65,11 +62,8 @@ export class LoginComponent {
       }else{
         this.loginMessage=res.result;
       }
-       console.log(this.loginMessage);
     })
   }
-
-
   IsLogged=this.userserv.IsLogged;
 
  

@@ -41,6 +41,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import { AdminComponent } from './contentpage/admin/admin.component';
 import { AdmindashboardComponent } from './contentpage/admindashboard/admindashboard.component';
 import { ProductCardComponent } from './sharepage/product-card/product-card.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AdminProductDetialsCardComponent } from './parts/admin-product-detials-card/admin-product-detials-card.component';
+import { AddProductsComponent } from './contentpage/add-products/add-products.component';
+import { ProductListComponent } from './contentpage/product-list/product-list.component';
+import { ProductInputComponent } from './parts/product-input/product-input.component';
+import { TitleComponent } from './parts/title/title.component';
+import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field"
 
 @NgModule({
   declarations: [
@@ -69,6 +78,11 @@ import { ProductCardComponent } from './sharepage/product-card/product-card.comp
     AdminComponent,
     AdmindashboardComponent,
     ProductCardComponent,
+    AdminProductDetialsCardComponent,
+    AddProductsComponent,
+    ProductListComponent,
+    ProductInputComponent,
+    TitleComponent,
     
 
 
@@ -94,6 +108,11 @@ import { ProductCardComponent } from './sharepage/product-card/product-card.comp
     MatExpansionModule,
     CarouselModule,
     MatChipsModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}

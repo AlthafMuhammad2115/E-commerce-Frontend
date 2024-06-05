@@ -1,0 +1,21 @@
+<div class="main p-5 row" *ngIf="toggle==true">
+  <div class="col-6 d-flex flex-column align-items-center justify-items-between">
+    <p class="me-auto p-2 cat h4">{{productdetial.category}}</p>
+    <img [src]="productdetial.imgUrl" alt="" [width]="200" />
+    <p>
+      {{productdetial.desc}}
+    </p>
+  </div>
+  <div class="col-6 d-flex flex-column ">
+    <p class="h2">{{productdetial.name}}</p>
+    <p *ngIf="productdetial.stock!=0">{{productdetial.stock}} Stock Available</p>
+    <p *ngIf="productdetial.stock==0" class="text-danger">Out Of Stcok</p>
+
+    <p>{{productdetial.shortDesc}}</p>
+    <p class="h4">{{productdetial.price | currency:"INR"}}</p>
+    <div class="size d-flex justify-content-evenly"><p class="h6 p-1" *ngFor="let item of productdetial.size">{{item}}</p></div>
+  </div>
+
+</div>
+<button class="btn btn-outline-dark" (click)="invisible()" *ngIf="toggle"><i class="fa-solid fa-xmark"></i></button>
+
