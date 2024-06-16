@@ -12,6 +12,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { CheckoutService } from 'src/app/service/checkout.service';
+import { OrdersService } from 'src/app/service/orders.service';
 
 declare var Razorpay: any;
 
@@ -38,8 +39,6 @@ declare var Razorpay: any;
     ]),
   ],
 })
-
-
 export class CheckoutComponent {
   submit = false;
   postarray: any = [];
@@ -48,7 +47,6 @@ export class CheckoutComponent {
   address: any = [];
   len: any;
 
-
   constructor(
     private fb: FormBuilder,
     private act: ActivatedRoute,
@@ -56,7 +54,8 @@ export class CheckoutComponent {
     private userserv: UserService,
     private toast: ToastrService,
     private checkoutserv: CheckoutService,
-    private route:Router
+    private route: Router,
+    private orderserv: OrdersService
   ) {
     serv.GetAll().subscribe((res) => {
       this.postarray = res;
@@ -119,69 +118,84 @@ export class CheckoutComponent {
   rzp1: any;
   state!: boolean;
   public orderId: any;
+
   pay() {
+    // Ensure the form is valid and submission is allowed before proceeding
+    if (this.reg.valid && this.submit) {
+      this.state = true;
 
+      // Create an order through the order service
+      this.orderserv.order({ amount: this.menudata[0].price * 100 }).subscribe(
+        (res) => {
+          // Retrieve the order ID from the response
+          this.orderId = res;
+          this.orderId = this.orderId.order_id;
+          // this.orderId = res.order_id;
+          console.log('Order ID:', this.orderId);
 
-    if(this.reg.valid && this.submit){
-    this.state = true;
-    this.checkoutserv
-      .order({ amount: this.menudata[0].price * 100 })
-      .subscribe((res) => {
-        this.orderId = res;
-        this.orderId = this.orderId.order_id;
-        console.log("order id",this.orderId);
-        
-      });
+          // Prepare the Razorpay options with the order details
+          const options = {
+            key: 'rzp_test_l2EHS214It8uXe',
+            amount: this.menudata[0].price * 100,
+            currency: 'INR',
+            name: 'Godope Clothings',
+            description: 'Test Transaction',
+            order_id: this.orderId,
+            callback_url: 'https://godope-a-clothing-website.vercel.app/orders',
+            prefill: {
+              name: `${this.f.firstname.value} ${this.f.lastname.value}`,
+              email: this.f.email.value,
+              contact: this.f.number.value,
+            },
+            theme: {
+              color: '#3399cc',
+            },
+            handler: (response: any) => {
+              console.log('Payment response:', response);
 
-    const options = {
-      key: 'rzp_test_l2EHS214It8uXe',
-      amount: this.menudata[0].price * 100,
-      currency: 'INR',
-      name: 'Godope Clothings',
-      description: 'Test Transaction',
-      order_id: this.orderId,
-      callback_url: "https://godope-a-clothing-website.vercel.app",
-      prefill: {
-        name: `${this.f.firstname.value} ${this.f.lastname.value}`,
-        email: this.f.email.value,
-        contact: this.f.number.value,
-      },
-      theme: {
-        color: '#3399cc',
-      },
-      handler : (response:any, error:any) => {
+              // Prepare the order details for verification
+              const orderDetails = {
+                productId: this.menudata[0].id,
+                orderId: this.orderId,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature,
+                address:this.f.address.value,
+                phone:this.f.number.value,
+                delivery_date:Date.now(),
+                size:"XL"
+              };
 
-        let orderDetials={
-          productId:this.menudata[0].id,
-          orderId:this.orderId,
-          razorpay_payment_id:response.razorpay_payment_id,
-          razorpay_order_id:response.razorpay_order_id,
-          razorpay_signature:response.razorpay_signature,
+              // Verify the order with the server
+              this.orderserv.verifyOrder(orderDetails).subscribe((res) => {
+                console.log('Order verification response:', res);
+                this.route.navigateByUrl('/orders');
+              });
+            },
+          };
+
+          // Initialize the Razorpay payment window with the options
+          this.rzp1 = new this.userserv.nativeWindow.Razorpay(options);
+
+          // Handle payment failure
+          this.rzp1.on('payment.failed', (response: any) => {
+            alert(response.error.code);
+          });
+
+          // Open the Razorpay payment window
+          this.rzp1.open();
+        },
+        (error) => {
+          console.error('Order creation error:', error);
+          // Handle order creation error here
         }
-
-        this.checkoutserv.verifyOrder(orderDetials).subscribe(res=>{
-          console.log('verify',res);
-          this.route.navigateByUrl('/Home')
-        })
-      }
-    };
-
-
-    this.rzp1 = new this.userserv.nativeWindow.Razorpay(options);
-
-    this.rzp1.on('payment.failed',(res:any)=>{
-      alert(res.error.code)
-    })
-
-    this.rzp1.open();
-    }else{
-
-      this.toast.warning("Fill the detials","",{
-        timeOut:1000,
-        positionClass:'toast-top-right'
-
-      })
+      );
+    } else {
+      // Show a warning if the form is not valid or submission is not allowed
+      this.toast.warning('Fill in the details', '', {
+        timeOut: 1000,
+        positionClass: 'toast-top-right',
+      });
     }
-    // if end
   }
 }

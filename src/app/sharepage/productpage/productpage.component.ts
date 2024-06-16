@@ -17,7 +17,7 @@ export class ProductpageComponent {
   menudata: any;
   postarray: any[] = [];
   value!: number;
-  state:any=0;
+  size:any;
   count:number=3
   off:number=30
   panelOpenState = false;
@@ -92,17 +92,19 @@ ishover:boolean=false;
   submit=false;
  clicked(item:any){
   this.submit=true;
-  if(this.state!=0 && this.userserv.IsLogged)
+  if(this.size!=0 && this.userserv.IsLogged)
     this.route.navigateByUrl('/'+item.id+'/checkout');
   else if(!this.userserv.IsLogged)
     this.route.navigateByUrl('login')
 
-    console.log(this.state);
     
  }
   
   
-
+log(){
+  console.log(this.size);
+  
+}
 };
 
 

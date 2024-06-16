@@ -1,0 +1,58 @@
+<div class="container main my-3 d-flex col-12">
+  <div class="col-8">
+    <div class="orders mb-2" *ngFor="let item of orderDetials, index as i">
+      <div class="all_products d-flex flex-column col-12">
+        <div class="d-flex product border border-dark p-3">
+          <div class="col-3">
+            <img [src]="item.product[0].imgUrl" alt="" class="w-75" />
+          </div>
+          <div class="product_detials col-4 text-center my-auto">
+            <p class="h2">{{ item.product[0].name }}</p>
+            <p class="h6">Deliver expected</p>
+            <p>{{ item.orderId }}</p>
+          </div>
+          <div class="other_detials col-4 text-center my-auto">
+            <p class="h3">{{ item.product[0].price }}</p>
+            <p class="h4">XL</p>
+            <p>quantity</p>
+          </div>
+          <div class="col-1 my-auto">
+            <button class="btn btn-outline-dark rounded-0" (click)="ViewOrderDetials(item,i)">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-order-detials position-relative col-4" *ngIf="state==true">
+    <button class="close_btn btn btn-outline-dark rounded-0 position-absolute" (click)="RemoveOrderDetials()">
+      <i class="fa-solid fa-x"></i>
+    </button>
+    <div
+      class="product-main-detials d-flex border border-dark ms-1 p-2 col-12 row"
+    >
+      <div class="col-6">
+        <img [src]="moreDetialItem.product[0].imgUrl" alt="" class="w-100" />
+      </div>
+      <div class="text-center my-auto col-6">
+        <p class="h2">{{moreDetialItem.product[0].name}}</p>
+        <p class="h3">{{moreDetialItem.product[0].price}}</p>
+        <p class="h4"></p>
+        <p class="h4">Quantity</p>
+        <p class="h5">Status</p>
+      </div>
+      <div class="col-12 py-3">
+        <p class="h6">delivery Exppected</p>
+        <p class="h6">OrderId:{{moreDetialItem.orderId}}</p>
+        <p class="h6">
+          Address:Panamkunnil house, Mailampully ,Nampullipura post, Mundur
+          ,Palakkd, 678592
+        </p>
+        <p class="h6">phone no:8714401814</p>
+
+        <app-order-track-line></app-order-track-line>
+      </div>
+    </div>
+  </div>
+</div>

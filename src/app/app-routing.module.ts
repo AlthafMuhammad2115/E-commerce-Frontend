@@ -16,6 +16,7 @@ import { AdminComponent } from './contentpage/admin/admin.component';
 import { AdmindashboardComponent } from './contentpage/admindashboard/admindashboard.component';
 import { AddProductsComponent } from './contentpage/add-products/add-products.component';
 import { ProductListComponent } from './contentpage/product-list/product-list.component';
+import { OrderComponent } from './contentpage/order/order.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'Home',pathMatch:'full'},
@@ -34,11 +35,14 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'SignUp',component:RegisterComponent},
   {path:':id/checkout',component:CheckoutComponent},
+  {path:'orders',component:OrderComponent},
+
   {path:'admin',component:AdminComponent,children:[
     {path:'addProducts',component:AddProductsComponent},
     {path:'',component:ProductListComponent},
     {path:'editProducts',component:AddProductsComponent},
   ]},
+  
 
   {path:'**',component:NotfoundComponent}
   

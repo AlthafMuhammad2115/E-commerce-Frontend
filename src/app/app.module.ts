@@ -49,7 +49,9 @@ import { ProductInputComponent } from './parts/product-input/product-input.compo
 import { TitleComponent } from './parts/title/title.component';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from "@angular/material/form-field"
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { OrderComponent } from './contentpage/order/order.component';
+import { OrderTrackLineComponent } from './sharepage/order-track-line/order-track-line.component'
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { MatFormFieldModule } from "@angular/material/form-field"
     ProductListComponent,
     ProductInputComponent,
     TitleComponent,
+    OrderComponent,
+    OrderTrackLineComponent,
     
 
 

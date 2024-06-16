@@ -1,5 +1,5 @@
 //backend link
-const BASE_URL="https://clothing-store-backend.onrender.com"
+const BASE_URL="http://localhost:3000"
 
 //routes
 export const PRODUCT_URL=BASE_URL+"/api/products"
@@ -44,3 +44,4 @@ export const DELETEADDRESS_URL=ADDRESS_URL+"/deleteAddress/"
 // orders
 export const RAZORPAY_URL=ORDER_URL+"/razorpay"
 export const RAZORPAY_VERIFICATION_URL=ORDER_URL+"/orderVerification/"
+export const GET_ORDERS_URL= ORDER_URL+"/getOrders/"

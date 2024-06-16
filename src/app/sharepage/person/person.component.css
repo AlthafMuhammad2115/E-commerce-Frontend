@@ -3,8 +3,8 @@
   height: fit-content;
 }
 .cat_card .card img {
-  width: 100%;
-  /* height: 200px; */
+  width: 200px;
+  height: 200px;
 }
 .card {
   border-radius: 0px;
@@ -127,9 +127,10 @@ mat-chip-option{
   }
   .filter{
     position: absolute;
+    /* position: fixed; */
     top: auto;
-    transition: all .5s ease-in-out;
-    left: -1000px;
+    transition: all .9s ease-in-out;
+    left: -10000px;
     z-index: 10000;
     background-color: white;
     /* overflow-y: scroll; */

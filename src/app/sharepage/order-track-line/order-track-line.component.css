@@ -1,0 +1,10 @@
+.box{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+.line{
+    height: 1px;
+    width: 20px;
+    background-color: black;
+}

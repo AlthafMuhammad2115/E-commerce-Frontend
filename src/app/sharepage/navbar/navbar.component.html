@@ -40,7 +40,7 @@
         <li class="username p-0" >
           <h1 class="mt-2 mb-0 pb-0">{{username}}</h1> 
         <div class="user_detials">
-          <p>Orders</p>
+          <p routerLink="orders">Orders</p>
           <p (click)="logout()" >Log Out</p>
         </div>
         </li>
@@ -106,7 +106,7 @@
             matBadgeColor="warn"
           ></mat-icon>
         </li >
-        <li routerLinkActive="slider_active" (click)="onclick()" >Orders</li>
+        <li routerLinkActive="slider_active" (click)="onclick()" routerLink="orders" >Orders</li>
         <li routerLinkActive="slider_active" (click)="logout()" >Log Out</li>
       </ul>
     </div>
