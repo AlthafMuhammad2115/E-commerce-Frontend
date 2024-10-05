@@ -1,27 +1,67 @@
-# Learning
+# E-commerce Clothing Store Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+## Overview
 
-## Development server
+This is the frontend application for an E-commerce clothing store built using Angular. The application provides a user-friendly interface for browsing and purchasing clothing items, ensuring a seamless shopping experience.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **User Authentication**: Sign up and log in to manage user accounts.
+- **Product Listings**: View a variety of clothing products with details and images.
+- **Shopping Cart**: Add items to the cart and manage your selections.
+- **Checkout Process**: Streamlined checkout with payment integration (Razorpay).
+- **Responsive Design**: Mobile-friendly design that adapts to various screen sizes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+- **Angular**: Framework for building the frontend application.
+- **HTML/CSS**: Markup and styling for the application.
+- **JavaScript**: Scripting language for interactive features.
+- **Razorpay**: Payment gateway integration for secure transactions.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+1. Clone the repository:
+     ```bash
+     git clone https://github.com/AlthafMuhammad2115/E-commerce-Frontend.git
+   
+2. Navigate to the project directory:
+     ```bash
+     cd E-commerce-Frontend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Install the required dependencies:
+    ```bash
+    npm install
 
-## Running end-to-end tests
+4. Start the development server:
+    ```bash
+    ng serve
+Open your browser and navigate to http://localhost:4200.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage
 
-## Further help
+1. Create an account or log in.
+2. Browse the clothing items.
+3. Add desired items to the shopping cart.
+4. Proceed to checkout to complete the purchase.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Screenshots
+![Screenshot (60)](https://github.com/user-attachments/assets/49f6330e-21f5-421d-9d94-c3909cd88989)
+
+![Screenshot (59)](https://github.com/user-attachments/assets/cfd297cd-5af0-46ee-94fe-eafe558b83d8)
+
+![Screenshot (58)](https://github.com/user-attachments/assets/1caa8e05-44f4-4fe4-a392-ecb0ca3549ba)
+
+![Screenshot (57)](https://github.com/user-attachments/assets/a7d1fc1a-5538-4175-9f65-47aecc6fd6ca)
+
+![Screenshot (56)](https://github.com/user-attachments/assets/1640b9be-a5aa-43bb-b64e-66dac4ebbfaf)
+
+![Screenshot (55)](https://github.com/user-attachments/assets/a10dd880-b1d1-4b38-a1ab-dadd42eaada1)
+
+![Screenshot (54)](https://github.com/user-attachments/assets/7b5cbe00-0e80-4029-8a4a-4d60263c20c6)
+
+## Contact
+For any inquiries, please contact:  
+**Email**: [althafmuhammad2115@gmail.com](mailto:althafmuhammad2115@gmail.com)  
+**GitHub**: [AlthafMuhammad2115](https://github.com/AlthafMuhammad2115)
+
